@@ -35,4 +35,19 @@ Laravel is accessible, yet powerful, providing tools needed for large, robust ap
 
 ****
 
-`php artisan make:model Model/Question -mrf`
+`php artisan make:model Model/Question -mfr`
+
+<br>
+
+`php artisan make:model Model/Reply -mfr`
+
+<br>
+
+`php artisan make:model Model/Category -mfr`
+
+<br>
+
+
+`php artisan make:model Model/Like -mfr`
+
+
