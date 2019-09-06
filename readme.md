@@ -50,4 +50,6 @@ Laravel is accessible, yet powerful, providing tools needed for large, robust ap
 
 `php artisan make:model Model/Like -mfr`
 
+<br>
 
+`php artisan route:list`

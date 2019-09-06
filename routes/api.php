@@ -1,5 +1,7 @@
 <?php
 
-Route::get('/question','QuestionController@index');
+//php artisan route:list 🍎
+
+Route::apiResource('/question','QuestionController');
 
 
