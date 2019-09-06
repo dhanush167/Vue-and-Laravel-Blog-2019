@@ -1,13 +1,15 @@
 <?php
 
 
+use App\Model\Like;
+use App\User;
 use Faker\Generator as Faker;
 
 
-$factory->define(App\Model\Like::class, function (Faker $faker) {
+$factory->define(Like::class, function (Faker $faker) {
     return [
         'user_id' => function () {
-            return \App\User::all()->random();
+            return User::all()->random();
         }
     ];
 });
