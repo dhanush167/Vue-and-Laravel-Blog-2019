@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Model\Question;
+use http\Env\Response;
 use Illuminate\Http\Request;
 
 class QuestionController extends Controller
@@ -65,6 +66,6 @@ class QuestionController extends Controller
     public function destroy(Question $question)
     {
         $question->delete();
-        return response('Deleted',200);
+        return response(NULL,Response::HTTP_NO_CONTENT);
     }
 }
