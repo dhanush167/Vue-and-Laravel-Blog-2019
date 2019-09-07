@@ -54,10 +54,6 @@ class CategoryController extends Controller
      * @param  \App\Model\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function edit(Category $category)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.
@@ -68,7 +64,13 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-        //
+        $category->update(
+            [
+                'name' => $request->name,
+                'slug' => str_slug($request->name)
+            ]
+        );
+        return response('Updated', Response::HTTP_ACCEPTED);
     }
 
     /**
