@@ -15,17 +15,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
+        //http://localhost:8000/api/category 💔
       return category::latest()->get();
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
     }
 
     /**
@@ -37,7 +28,7 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
        //Category::create($request->all());
-        //http://localhost:8000/api/category
+        //http://localhost:8000/api/category 🅱
          $category = new Category;
          $category->name = $request->name;
          $category->slug = str_slug($request->name);
@@ -53,7 +44,8 @@ class CategoryController extends Controller
      */
     public function show(Category $category)
     {
-        //
+        //http://localhost:8000/api/category/12 🚡
+        return $category;
     }
 
     /**
