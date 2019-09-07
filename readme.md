@@ -53,3 +53,14 @@ Laravel is accessible, yet powerful, providing tools needed for large, robust ap
 <br>
 
 `php artisan route:list`
+
+<br>
+
+`php artisan make:resource QuestionResource`
+
+<br>
+
+
+
+
+

@@ -29,6 +29,7 @@ class QuestionController extends Controller
      */
     public function store(Request $request)
     {
+     //auth()->user()->question()->create($request->all());
      Question::create($request->all());
      return response('Created', Response::HTTP_CREATED);
     }
@@ -43,7 +44,7 @@ class QuestionController extends Controller
     {
         //http://localhost:8000/api/question/10 📑
         //http://localhost:8000/api/question/aut-aut-quaerat-nemo-fugiat-quo-et ⚛
-       return $question;
+       return new QuestionResource($question);
     }
 
 
