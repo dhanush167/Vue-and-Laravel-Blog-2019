@@ -29,7 +29,7 @@ class QuestionController extends Controller
      */
     public function store(Request $request)
     {
-      $question = new Question;
+     Question::create($request->all());
     }
 
     /**
