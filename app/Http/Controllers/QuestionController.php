@@ -17,7 +17,7 @@ class QuestionController extends Controller
     public function index()
     {
         //http://localhost:8000/api/question 🍎
-      return Question::latest()->get();
+      return QuestionResource::collection(Question::latest()->get());
     }
 
 
