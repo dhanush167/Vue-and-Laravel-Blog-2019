@@ -15,8 +15,8 @@ class ReplyResource extends JsonResource
     public function toArray($request)
     {
         return [
-            'reply' => $this->reply,
-            'user'  => $this->user()->name,
+            'reply' => $this->body,
+            'user'  => $this->user->name,
             'created_at' => $this->created_at->diffForHumans()
         ];
     }

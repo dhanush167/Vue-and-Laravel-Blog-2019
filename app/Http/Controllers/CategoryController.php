@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\CategoryResource;
 use App\Model\Category;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -16,7 +17,7 @@ class CategoryController extends Controller
     public function index()
     {
         //http://localhost:8000/api/category 💔
-      return category::latest()->get();
+      return CategoryResource::collection(category::latest()->get());
     }
 
     /**
@@ -45,7 +46,7 @@ class CategoryController extends Controller
     public function show(Category $category)
     {
         //http://localhost:8000/api/category/12 🚡
-        return $category;
+        return new CategoryResource($category);
     }
 
     /**

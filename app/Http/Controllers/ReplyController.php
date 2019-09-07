@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\ReplyResource;
 use App\Model\Question;
 use App\Model\Reply;
 use Symfony\Component\HttpFoundation\Response;
@@ -17,7 +18,7 @@ class ReplyController extends Controller
     public function index(Question $question)
     {
         //http://localhost:8000/api/question/odio-assumenda-sequi-fugiat-voluptatibus/reply 🥑
-        return $question->replies;
+        return ReplyResource::collection($question->replies);
        //return Reply::latest()->get();
     }
 
@@ -40,7 +41,7 @@ class ReplyController extends Controller
     public function store(Question $question, Request $request)
     {
       $reply = $question->replies()->create($request->all());
-      return response(['reply' => $reply], Response::HTTP_CREATED);
+      return response(['reply' => new ReplyResource($reply)], Response::HTTP_CREATED);
     }
 
     /**
@@ -51,7 +52,7 @@ class ReplyController extends Controller
      */
     public function show(Question $question, Reply $reply)
     {
-       return $reply;
+       return new ReplyResource($reply);
     }
 
     /**
