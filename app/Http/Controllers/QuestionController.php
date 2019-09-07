@@ -39,6 +39,7 @@ class QuestionController extends Controller
     public function show(Question $question)
     {
         //http://localhost:8000/api/question/10 📑
+        //http://localhost:8000/api/question/aut-aut-quaerat-nemo-fugiat-quo-et ⚛
        return $question;
     }
 
