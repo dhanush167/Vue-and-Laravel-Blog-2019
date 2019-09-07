@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Model\Question;
-use http\Env\Response;
+use Symfony\Component\HttpFoundation\Response;
+use App\Http\Resources\QuestionResource;
 use Illuminate\Http\Request;
 
 class QuestionController extends Controller
@@ -28,7 +29,7 @@ class QuestionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      $question = new Question;
     }
 
     /**
@@ -66,6 +67,6 @@ class QuestionController extends Controller
     public function destroy(Question $question)
     {
         $question->delete();
-        return response(NULL,Response::HTTP_NO_CONTENT);
+        return response(null, Response::HTTP_NO_CONTENT);
     }
 }
