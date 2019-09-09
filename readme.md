@@ -66,3 +66,6 @@ Laravel is accessible, yet powerful, providing tools needed for large, robust ap
 
 `php artisan make:resource ReplyResource`
 
+<br>
+
+`php artisan make:controller AuthController`
