@@ -69,3 +69,18 @@ Laravel is accessible, yet powerful, providing tools needed for large, robust ap
 <br>
 
 `php artisan make:controller AuthController`
+
+**Vuetify section** 
+
+`npm install vuetify --save`
+
+
+
+
+
+
+
+
+
+
+

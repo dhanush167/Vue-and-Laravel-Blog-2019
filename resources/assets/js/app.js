@@ -8,6 +8,13 @@
 require('./bootstrap');
 
 window.Vue = require('vue');
+// src/plugins/vuetify.js
+
+import Vue from 'vue'
+import Vuetify from 'vuetify/lib'
+
+Vue.use(Vuetify)
+
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
