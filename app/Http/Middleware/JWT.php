@@ -1,10 +1,7 @@
 <?php
-
 namespace App\Http\Middleware;
-
 use Closure;
-use Tymon\JWTAuth\JWTAuth;
-
+use Tymon\JWTAuth\Facades\JWTAuth;
 class JWT
 {
     /**
