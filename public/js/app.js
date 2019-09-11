@@ -89046,6 +89046,12 @@ function () {
         _AppStorage__WEBPACK_IMPORTED_MODULE_1__["default"].store(username, access_token);
       }
     }
+  }, {
+    key: "hasToken",
+    value: function hasToken() {
+      var storedToken = _AppStorage__WEBPACK_IMPORTED_MODULE_1__["default"].getToken();
+      console.log(storedToken);
+    }
   }]);
 
   return User;
@@ -89114,6 +89120,7 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuetify__WEBPACK_IMPORTED_MODULE_1___default.a);
 
 window.User = _Helpers_User__WEBPACK_IMPORTED_MODULE_2__["default"];
+_Helpers_User__WEBPACK_IMPORTED_MODULE_2__["default"].hasToken();
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue

@@ -17,6 +17,11 @@ class User {
         }
     }
 
+    hasToken() {
+        const storedToken = AppStorage.getToken();
+        console.log(storedToken);
+    }
+
 }
 
 export default User = new User();
