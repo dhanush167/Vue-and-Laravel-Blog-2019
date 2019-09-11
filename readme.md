@@ -76,7 +76,7 @@ Laravel is accessible, yet powerful, providing tools needed for large, robust ap
 
 `npm run watch`
 
-
+`npm install vue-router`
 
 
 
