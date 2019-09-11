@@ -18,12 +18,13 @@
                                 type="password"
                                 required></v-text-field>
                     </v-col>
+                    <v-col cols="12" md="4">
+                        <button type="button" class="btn btn-primary btn-lg">Login to Form</button>
+                    </v-col>
                 </v-row>
+
             </v-container>
-            <v-btn
-                color="green"
-                type="submit"
-            >Login</v-btn>
+
         </v-form>
 </template>
 

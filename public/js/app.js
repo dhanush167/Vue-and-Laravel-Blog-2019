@@ -1832,6 +1832,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -37371,17 +37372,24 @@ var render = function() {
                   })
                 ],
                 1
-              )
+              ),
+              _vm._v(" "),
+              _c("v-col", { attrs: { cols: "12", md: "4" } }, [
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-primary btn-lg",
+                    attrs: { type: "button" }
+                  },
+                  [_vm._v("Login to Form")]
+                )
+              ])
             ],
             1
           )
         ],
         1
-      ),
-      _vm._v(" "),
-      _c("v-btn", { attrs: { color: "green", type: "submit" } }, [
-        _vm._v("Login")
-      ])
+      )
     ],
     1
   )
