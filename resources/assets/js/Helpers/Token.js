@@ -1,6 +1,7 @@
 class Token {
     payload(token) {
-      const payload = token.split('.')[1]
+      const payload = token.split('.')[1];
+      console.log(token);
       console.log(payload);
     }
 }
