@@ -9,7 +9,9 @@
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Forum<span class="sr-only">(current)</span></a>
+                    <router-link>
+                        <a class="nav-link" href="#">Forum<span class="sr-only">(current)</span></a>
+                    </router-link>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Ask Question</a>
@@ -18,7 +20,9 @@
                     <a class="nav-link" href="#">Category</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Login</a>
+                    <router-link to="/login">
+                        <a class="nav-link" href="#">Login</a>
+                    </router-link>
                 </li>
             </ul>
         </div>
