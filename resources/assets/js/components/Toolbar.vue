@@ -19,6 +19,11 @@
                 <li class="nav-item">
                     <a class="nav-link">Category</a>
                 </li>
+                <li class="nav-item active">
+                    <router-link to="/signup">
+                        <a class="nav-link">Sign Up</a>
+                    </router-link>
+                </li>
                 <li class="nav-item">
                     <router-link to="/login">
                         <a class="nav-link">Login</a>

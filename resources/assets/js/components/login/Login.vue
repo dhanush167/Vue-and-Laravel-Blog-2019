@@ -22,7 +22,6 @@
                     <v-col cols="12" md="4">
                         <button type="submit" class="btn btn-primary btn-lg">Login to Form</button>
                     </v-col>
-
                 </v-row>
 
             </v-container>
