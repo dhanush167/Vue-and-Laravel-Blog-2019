@@ -88948,7 +88948,8 @@ function () {
     key: "login",
     value: function login(data) {
       axios.post('/api/auth/login', data).then(function (res) {
-        console.log(res.data); //Token.payload(res.data.token)
+        //console.log(res.data);
+        _Token__WEBPACK_IMPORTED_MODULE_0__["default"].payload(res.data.access_token);
       })["catch"](function (error) {
         return console.log(error.response.data);
       });
