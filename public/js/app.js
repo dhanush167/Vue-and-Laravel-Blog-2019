@@ -37192,8 +37192,8 @@ var render = function() {
               "li",
               { staticClass: "nav-item active" },
               [
-                _c("router-link", [
-                  _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
+                _c("router-link", { attrs: { to: "/forum" } }, [
+                  _c("a", { staticClass: "nav-link" }, [
                     _vm._v("Forum"),
                     _c("span", { staticClass: "sr-only" }, [
                       _vm._v("(current)")
@@ -37213,9 +37213,7 @@ var render = function() {
               { staticClass: "nav-item" },
               [
                 _c("router-link", { attrs: { to: "/login" } }, [
-                  _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
-                    _vm._v("Login")
-                  ])
+                  _c("a", { staticClass: "nav-link" }, [_vm._v("Login")])
                 ])
               ],
               1
@@ -37252,9 +37250,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("li", { staticClass: "nav-item" }, [
-      _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
-        _vm._v("Ask Question")
-      ])
+      _c("a", { staticClass: "nav-link" }, [_vm._v("Ask Question")])
     ])
   },
   function() {
@@ -37262,9 +37258,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("li", { staticClass: "nav-item" }, [
-      _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
-        _vm._v("Category")
-      ])
+      _c("a", { staticClass: "nav-link" }, [_vm._v("Category")])
     ])
   }
 ]
@@ -88795,8 +88789,10 @@ var routes = [{
   component: _components_login_Login__WEBPACK_IMPORTED_MODULE_2__["default"]
 }];
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
-  routes: routes // short for `routes: routes`
-
+  routes: routes,
+  // short for `routes: routes`
+  hashbang: false,
+  mode: 'history'
 });
 /* harmony default export */ __webpack_exports__["default"] = (router);
 
