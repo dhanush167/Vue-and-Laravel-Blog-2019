@@ -18,7 +18,7 @@
                     <a class="nav-link" href="#">Category</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">login</a>
+                    <a class="nav-link" href="#">Login</a>
                 </li>
             </ul>
         </div>
