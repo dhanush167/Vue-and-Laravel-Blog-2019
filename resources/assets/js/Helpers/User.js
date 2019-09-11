@@ -24,7 +24,9 @@ class User {
         }
         return false
     }
-
+    loggedIn(){
+        return this.hasToken()
+    }
 }
 
 export default User = new User();
