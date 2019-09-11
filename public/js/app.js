@@ -88905,6 +88905,17 @@ function () {
   }
 
   _createClass(Token, [{
+    key: "isVaid",
+    value: function isVaid(token) {
+      var payload = this.payload(token);
+
+      if (payload) {
+        return payload.iss == "http://localhost:8000/api/auth/login" ? true : false;
+      }
+
+      return false;
+    }
+  }, {
     key: "payload",
     value: function payload(token) {
       var payload = token.split('.')[1];
