@@ -27,6 +27,9 @@ class User {
     loggedIn(){
         return this.hasToken()
     }
+    logout(){
+        AppStorage.clear()
+    }
 }
 
 export default User = new User();
