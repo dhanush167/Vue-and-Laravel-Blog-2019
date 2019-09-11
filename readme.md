@@ -78,8 +78,13 @@ Laravel is accessible, yet powerful, providing tools needed for large, robust ap
 
 `npm install vue-router`
 
+**how to clone this web app**
 
-
+<ul>
+<li>first go to checkout for last branch and last commit</li>
+<li>npm install</li>
+<li>composer install</li>
+</ul>
 
 
 
