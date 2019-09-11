@@ -88908,8 +88908,7 @@ function () {
     key: "payload",
     value: function payload(token) {
       var payload = token.split('.')[1];
-      console.log(token);
-      console.log(payload);
+      console.log(JSON.parse(atob(payload)));
     }
   }]);
 
