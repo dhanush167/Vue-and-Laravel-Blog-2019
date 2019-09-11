@@ -74,7 +74,7 @@ Laravel is accessible, yet powerful, providing tools needed for large, robust ap
 
 `npm install vuetify --save`
 
-
+`npm run watch`
 
 
 
