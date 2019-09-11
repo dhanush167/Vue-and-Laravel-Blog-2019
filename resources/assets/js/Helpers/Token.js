@@ -1,7 +1,10 @@
 class Token {
     payload(token) {
       const payload = token.split('.')[1];
-      console.log(JSON.parse(atob(payload)));
+      console.log(this.decode(payload));
+    }
+    decode(payload) {
+        return JSON.parse(atob(payload))
     }
 }
 
