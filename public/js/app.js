@@ -1833,6 +1833,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -1841,6 +1843,11 @@ __webpack_require__.r(__webpack_exports__);
         password: null
       }
     };
+  },
+  methods: {
+    login: function login() {
+      alert('login');
+    }
   }
 });
 
@@ -37319,12 +37326,11 @@ var render = function() {
   return _c(
     "v-form",
     {
-      model: {
-        value: _vm.valid,
-        callback: function($$v) {
-          _vm.valid = $$v
-        },
-        expression: "valid"
+      on: {
+        submit: function($event) {
+          $event.preventDefault()
+          return _vm.login($event)
+        }
       }
     },
     [
@@ -37379,7 +37385,7 @@ var render = function() {
                   "button",
                   {
                     staticClass: "btn btn-primary btn-lg",
-                    attrs: { type: "button" }
+                    attrs: { type: "submit" }
                   },
                   [_vm._v("Login to Form")]
                 )

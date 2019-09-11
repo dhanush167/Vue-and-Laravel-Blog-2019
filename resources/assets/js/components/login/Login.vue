@@ -1,7 +1,8 @@
 <template>
-        <v-form v-model="valid">
+        <v-form  @submit.prevent="login">
             <v-container>
                 <v-row>
+
                     <v-col cols="12" md="4">
                         <v-text-field
                                 v-model="form.email"
@@ -19,8 +20,9 @@
                                 required></v-text-field>
                     </v-col>
                     <v-col cols="12" md="4">
-                        <button type="button" class="btn btn-primary btn-lg">Login to Form</button>
+                        <button type="submit" class="btn btn-primary btn-lg">Login to Form</button>
                     </v-col>
+
                 </v-row>
 
             </v-container>
@@ -37,7 +39,12 @@
                   password:null
               }
           }
-      }
+      },
+        methods: {
+          login(){
+              alert('login')
+          }
+        }
     }
 </script>
 
