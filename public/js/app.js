@@ -1862,6 +1862,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
     question: _question__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  created: function created() {
+    var _this = this;
+
+    axios.get('/api/question').then(function (res) {
+      return _this.question = res.data.data;
+    })["catch"](function (error) {
+      return console.log(error.response.data);
+    });
   }
 });
 

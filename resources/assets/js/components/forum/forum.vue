@@ -27,7 +27,12 @@
 <script>
     import question from "./question";
     export default {
-      components: {question}
+      components: {question},
+        created() {
+          axios.get('/api/question')
+              .then(res => this.question = res.data.data)
+              .catch(error => console.log(error.response.data))
+        }
     }
 </script>
 
