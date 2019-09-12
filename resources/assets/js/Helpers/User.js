@@ -24,9 +24,11 @@ class User {
         }
         return false
     }
+
     loggedIn(){
         return this.hasToken()
     }
+
     logout(){
         AppStorage.clear()
     }
