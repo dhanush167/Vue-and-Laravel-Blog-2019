@@ -11,7 +11,7 @@
  Target Server Version : 50724
  File Encoding         : 65001
 
- Date: 11/09/2019 19:34:58
+ Date: 12/09/2019 13:20:57
 */
 
 SET NAMES utf8mb4;
@@ -472,7 +472,7 @@ CREATE TABLE `users`  (
   `updated_at` timestamp(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE INDEX `users_email_unique`(`email`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 53 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 62 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of users
@@ -527,7 +527,14 @@ INSERT INTO `users` VALUES (47, 'Jaqueline Feest', 'jaron.herman@example.com', '
 INSERT INTO `users` VALUES (48, 'Estella Goldner', 'giovanni.stanton@example.org', '$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm', '5H5qGmyplS', '2019-09-06 18:24:38', '2019-09-06 18:24:38');
 INSERT INTO `users` VALUES (49, 'Coleman Lebsack', 'tate16@example.com', '$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm', 'OEdGayccGv', '2019-09-06 18:24:38', '2019-09-06 18:24:38');
 INSERT INTO `users` VALUES (50, 'Murl Mante', 'osinski.hollis@example.net', '$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm', 'kBsHaydWR1', '2019-09-06 18:24:39', '2019-09-06 18:24:39');
-INSERT INTO `users` VALUES (51, 'dhanushka', 'abc@gmail.com', 'secret', NULL, '2019-09-09 12:27:25', '2019-09-09 12:27:25');
 INSERT INTO `users` VALUES (52, 'google', 'abrc@gmail.com', '$2y$10$tOuhRG98VOd1XlEBmBFxqe5zoWg6AVbAv5oMs301IyJSaaPCaH0x6', NULL, '2019-09-09 12:56:32', '2019-09-09 12:56:32');
+INSERT INTO `users` VALUES (53, 'romeshan', 'gogole@gmail.com', '$2y$10$bPvt9DhPm0SxHUonXJmHJeAR6khfPfT5oEi/ZEnDGSBeV7lXvq6RS', NULL, '2019-09-12 03:58:01', '2019-09-12 03:58:01');
+INSERT INTO `users` VALUES (54, 'rowo', 'eroep@gmail.com', '$2y$10$3vn/N9rwOAfF7oCyYvrNKemNOBAS7S5SQwiMo0xQSlrwraTD7Pqky', NULL, '2019-09-12 03:58:48', '2019-09-12 03:58:48');
+INSERT INTO `users` VALUES (56, 'dhanus', 'erowo@gmail.com', '$2y$10$LtZjWJ/RZf62GHXdQOdVKuBxEVx0prM4ijM9GcTIXIkOIGho7DN6u', NULL, '2019-09-12 04:02:33', '2019-09-12 04:02:33');
+INSERT INTO `users` VALUES (57, 'soso', 'soso@gmail.com', '$2y$10$4YsuQdA7VIPFK4Rj997hEeMZ1mcZdiZrw4H/zwepBi/q7pVgIR6aW', NULL, '2019-09-12 04:21:32', '2019-09-12 04:21:32');
+INSERT INTO `users` VALUES (58, 'lala', 'lala@gmail.com', '$2y$10$7uw1R/vvxdfNxRscsgCxF.FGrn.4TMDdFYszlJVmioB3rIasp/j2a', NULL, '2019-09-12 04:24:46', '2019-09-12 04:24:46');
+INSERT INTO `users` VALUES (59, 'jojo', 'jojo@gmail.com', '$2y$10$EouocLPR6/qMkS9Ao5p4heZKxzaZZRWrfifR/3aX3LAsMOEOp8wp.', NULL, '2019-09-12 04:26:48', '2019-09-12 04:26:48');
+INSERT INTO `users` VALUES (60, 'eewwo', 'eewwo@gmail.com', '$2y$10$jGk.c.DEb2gpeTSiVxSTvuiuEyXKlwUwFGkZDxoGSkfWpAQj67ZEe', NULL, '2019-09-12 04:43:14', '2019-09-12 04:43:14');
+INSERT INTO `users` VALUES (61, 'mogno', 'jangoose@gmail.com', '$2y$10$FsQJ6WkRGu6p2In4AnvnleSS766Ag0jOGEKVi9U9kfqaTWckA/nJ6', NULL, '2019-09-12 05:18:32', '2019-09-12 05:18:32');
 
 SET FOREIGN_KEY_CHECKS = 1;
