@@ -1795,20 +1795,20 @@ __webpack_require__.r(__webpack_exports__);
         to: '/forum',
         show: true
       }, {
-        title: 'Login',
-        to: '/login',
-        show: !User.loggedIn()
-      }, {
-        title: 'Logout',
-        to: '/logout',
-        show: !User.loggedIn()
-      }, {
         title: 'Ask Question',
         to: '/ask',
         show: User.loggedIn()
       }, {
         title: 'Category',
         to: '/category',
+        show: User.loggedIn()
+      }, {
+        title: 'Login',
+        to: '/login',
+        show: !User.loggedIn()
+      }, {
+        title: 'Logout',
+        to: '/logout',
         show: User.loggedIn()
       }]
     };
