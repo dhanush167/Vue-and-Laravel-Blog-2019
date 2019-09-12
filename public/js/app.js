@@ -1902,6 +1902,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['data']
 });
@@ -37559,8 +37565,8 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("h1", { staticClass: "my-4" }, [
-      _vm._v("Page Heading\n        "),
-      _c("small", [_vm._v("Secondary Text")])
+      _vm._v("Chat With\n        "),
+      _c("small", [_vm._v("For All Questions")])
     ])
   },
   function() {
@@ -37603,17 +37609,26 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "card" }, [
+  return _c("div", { staticClass: "card mt-4" }, [
     _c(
       "div",
       { staticClass: "card-body" },
       [
-        _c("h1", { staticClass: "card-title" }, [
-          _vm._v(_vm._s(_vm.data.title))
-        ]),
+        _c(
+          "h1",
+          { staticClass: "card-title" },
+          [
+            _c("router-link", { attrs: { to: _vm.data.path } }, [
+              _vm._v(
+                "\n                " + _vm._s(_vm.data.title) + "\n            "
+              )
+            ])
+          ],
+          1
+        ),
         _vm._v(" "),
         _c("p", { staticClass: "text-muted" }, [
-          _vm._v(_vm._s(_vm.data.created_at))
+          _vm._v("\n            " + _vm._s(_vm.data.created_at) + "\n        ")
         ]),
         _vm._v(" "),
         _c("v-card-text", [

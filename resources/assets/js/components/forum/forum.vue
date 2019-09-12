@@ -3,8 +3,8 @@
     <div class="container">
 
         <!-- Page Heading -->
-        <h1 class="my-4">Page Heading
-            <small>Secondary Text</small>
+        <h1 class="my-4">Chat With
+            <small>For All Questions</small>
         </h1>
 
         <!-- Project One -->
