@@ -1860,6 +1860,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      question: {}
+    };
+  },
   components: {
     question: _question__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
@@ -1898,7 +1903,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "question"
+  props: ['data']
 });
 
 /***/ }),
@@ -37535,7 +37540,17 @@ var render = function() {
     _vm._m(0),
     _vm._v(" "),
     _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col-md-7" }, [_c("question")], 1),
+      _c(
+        "div",
+        { staticClass: "col-md-7" },
+        _vm._l(_vm.question, function(ques) {
+          return _c("question", {
+            key: _vm.question.path,
+            attrs: { data: _vm.question }
+          })
+        }),
+        1
+      ),
       _vm._v(" "),
       _vm._m(1)
     ])

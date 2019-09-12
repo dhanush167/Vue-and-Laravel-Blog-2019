@@ -10,7 +10,7 @@
         <!-- Project One -->
         <div class="row">
             <div class="col-md-7">
-            <question></question>
+            <question v-for="ques in question" :key="question.path" :data=question></question>
             </div>
             <div class="col-md-5">
                 <h3>Project One</h3>
@@ -27,7 +27,12 @@
 <script>
     import question from "./question";
     export default {
-      components: {question},
+        data(){
+            return {
+                question:{}
+            }
+        },
+      components:{question},
         created() {
           axios.get('/api/question')
               .then(res => this.question = res.data.data)
