@@ -10,7 +10,7 @@
         <!-- Project One -->
         <div class="row">
             <div class="col-md-7">
-            <question v-for="ques in question" :key="question.path" :data=question></question>
+            <question v-for="ques in question" :key="ques.path" :data=ques></question>
             </div>
             <div class="col-md-5">
                 <h3>Project One</h3>

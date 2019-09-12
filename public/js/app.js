@@ -37544,10 +37544,7 @@ var render = function() {
         "div",
         { staticClass: "col-md-7" },
         _vm._l(_vm.question, function(ques) {
-          return _c("question", {
-            key: _vm.question.path,
-            attrs: { data: _vm.question }
-          })
+          return _c("question", { key: ques.path, attrs: { data: ques } })
         }),
         1
       ),
@@ -37612,15 +37609,15 @@ var render = function() {
       { staticClass: "card-body" },
       [
         _c("h1", { staticClass: "card-title" }, [
-          _vm._v("Special title Questions")
+          _vm._v(_vm._s(_vm.data.title))
         ]),
         _vm._v(" "),
-        _c("p", { staticClass: "text-muted" }, [_vm._v("Said 4 Hours ago")]),
+        _c("p", { staticClass: "text-muted" }, [
+          _vm._v(_vm._s(_vm.data.created_at))
+        ]),
         _vm._v(" "),
         _c("v-card-text", [
-          _vm._v(
-            "\n         Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aperiam, asperiores debitis eligendi eos exercitationem inventore nobis quas sint veniam! Dicta dignissimos expedita minima molestiae officiis qui quia quis vero!\n      "
-          )
+          _vm._v("\n     " + _vm._s(_vm.data.body) + "\n      ")
         ])
       ],
       1
