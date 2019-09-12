@@ -1917,9 +1917,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -37574,7 +37571,7 @@ var render = function() {
                 [
                   _vm.errors.email
                     ? _c("span", { staticClass: "text-danger" }, [
-                        _vm._v("Error")
+                        _vm._v(_vm._s(_vm.errors.email[0]))
                       ])
                     : _vm._e(),
                   _vm._v(" "),
@@ -37598,7 +37595,7 @@ var render = function() {
                 [
                   _vm.errors.password
                     ? _c("span", { staticClass: "text-danger" }, [
-                        _vm._v("Error")
+                        _vm._v(_vm._s(_vm.errors.password[0]))
                       ])
                     : _vm._e(),
                   _vm._v(" "),
@@ -37626,7 +37623,7 @@ var render = function() {
                 [
                   _vm.errors.password
                     ? _c("span", { staticClass: "text-danger" }, [
-                        _vm._v("Error")
+                        _vm._v(_vm._s(_vm.errors.password[0]))
                       ])
                     : _vm._e(),
                   _vm._v(" "),
