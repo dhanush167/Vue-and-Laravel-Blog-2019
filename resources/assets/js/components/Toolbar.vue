@@ -8,27 +8,21 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav">
-                <li class="nav-item active">
-                    <router-link to="/forum">
-                        <a class="nav-link">Forum<span class="sr-only">(current)</span></a>
-                    </router-link>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link">Ask Question</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link">Category</a>
-                </li>
+
                 <li class="nav-item active">
                     <router-link to="/signup">
                         <a class="nav-link">Sign Up</a>
                     </router-link>
                 </li>
-                <li class="nav-item">
-                    <router-link to="/login">
-                        <a class="nav-link">Login</a>
+                    <router-link
+                            v-for="item in items"
+                            :key="item.title"
+                            :to="item.to"
+                            v-if="item.show" >
+                        <li class="nav-item">
+                        <a class="nav-link">{{item.title}}</a>
+                        </li>
                     </router-link>
-                </li>
             </ul>
         </div>
 
@@ -38,7 +32,17 @@
 
 <script>
     export default {
-        name: "Toolbar"
+       data() {
+           return {
+               items: [
+                   {title : 'Forum', to: '/forum',show:true},
+                   {title : 'Login', to: '/login',show: !User.loggedIn()},
+                   {title : 'Logout', to: '/logout',show: !User.loggedIn()},
+                   {title : 'Ask Question', to: '/ask',show: User.loggedIn()},
+                   {title : 'Category', to: '/category',show: User.loggedIn()}
+               ]
+           }
+       }
     }
 </script>
 

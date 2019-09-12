@@ -1787,14 +1787,32 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "Toolbar"
+  data: function data() {
+    return {
+      items: [{
+        title: 'Forum',
+        to: '/forum',
+        show: true
+      }, {
+        title: 'Login',
+        to: '/login',
+        show: !User.loggedIn()
+      }, {
+        title: 'Logout',
+        to: '/logout',
+        show: !User.loggedIn()
+      }, {
+        title: 'Ask Question',
+        to: '/ask',
+        show: User.loggedIn()
+      }, {
+        title: 'Category',
+        to: '/category',
+        show: User.loggedIn()
+      }]
+    };
+  }
 });
 
 /***/ }),
@@ -37352,49 +37370,39 @@ var render = function() {
           attrs: { id: "navbarNavDropdown" }
         },
         [
-          _c("ul", { staticClass: "navbar-nav" }, [
-            _c(
-              "li",
-              { staticClass: "nav-item active" },
-              [
-                _c("router-link", { attrs: { to: "/forum" } }, [
-                  _c("a", { staticClass: "nav-link" }, [
-                    _vm._v("Forum"),
-                    _c("span", { staticClass: "sr-only" }, [
-                      _vm._v("(current)")
-                    ])
+          _c(
+            "ul",
+            { staticClass: "navbar-nav" },
+            [
+              _c(
+                "li",
+                { staticClass: "nav-item active" },
+                [
+                  _c("router-link", { attrs: { to: "/signup" } }, [
+                    _c("a", { staticClass: "nav-link" }, [_vm._v("Sign Up")])
                   ])
-                ])
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _vm._m(1),
-            _vm._v(" "),
-            _vm._m(2),
-            _vm._v(" "),
-            _c(
-              "li",
-              { staticClass: "nav-item active" },
-              [
-                _c("router-link", { attrs: { to: "/signup" } }, [
-                  _c("a", { staticClass: "nav-link" }, [_vm._v("Sign Up")])
-                ])
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _c(
-              "li",
-              { staticClass: "nav-item" },
-              [
-                _c("router-link", { attrs: { to: "/login" } }, [
-                  _c("a", { staticClass: "nav-link" }, [_vm._v("Login")])
-                ])
-              ],
-              1
-            )
-          ])
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _vm._l(_vm.items, function(item) {
+                return item.show
+                  ? _c(
+                      "router-link",
+                      { key: item.title, attrs: { to: item.to } },
+                      [
+                        _c("li", { staticClass: "nav-item" }, [
+                          _c("a", { staticClass: "nav-link" }, [
+                            _vm._v(_vm._s(item.title))
+                          ])
+                        ])
+                      ]
+                    )
+                  : _vm._e()
+              })
+            ],
+            2
+          )
         ]
       )
     ]
@@ -37420,22 +37428,6 @@ var staticRenderFns = [
       },
       [_c("span", { staticClass: "navbar-toggler-icon" })]
     )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("li", { staticClass: "nav-item" }, [
-      _c("a", { staticClass: "nav-link" }, [_vm._v("Ask Question")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("li", { staticClass: "nav-item" }, [
-      _c("a", { staticClass: "nav-link" }, [_vm._v("Category")])
-    ])
   }
 ]
 render._withStripped = true
