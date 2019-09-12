@@ -3,6 +3,7 @@
         <v-container>
             <v-row>
                 <v-col cols="12" md="6">
+                    <span class="text-danger" v-if="errors.name"> {{errors.name[0]}} </span>
                     <v-text-field
                             v-model="form.name"
                             label="Name"
@@ -10,7 +11,11 @@
                             required>
                     </v-text-field>
                 </v-col>
+
+
+
                 <v-col cols="12" md="6">
+                    <span class="text-danger" v-if="errors.email">Error</span>
                     <v-text-field
                             v-model="form.email"
                             label="E-mail"
@@ -20,6 +25,7 @@
                     </v-text-field>
                 </v-col>
                 <v-col cols="12" md="6">
+                    <span class="text-danger" v-if="errors.password">Error</span>
                 <v-text-field
                         v-model="form.password"
                         label="Password"
@@ -27,6 +33,7 @@
                         required></v-text-field>
                 </v-col>
                 <v-col cols="12" md="6">
+                    <span class="text-danger" v-if="errors.password">Error</span>
                     <v-text-field
                             v-model="form.password_confirmation"
                             label="Confirm Password"

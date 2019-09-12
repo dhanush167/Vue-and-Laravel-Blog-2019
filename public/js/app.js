@@ -1913,6 +1913,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -37541,6 +37548,12 @@ var render = function() {
                 "v-col",
                 { attrs: { cols: "12", md: "6" } },
                 [
+                  _vm.errors.name
+                    ? _c("span", { staticClass: "text-danger" }, [
+                        _vm._v(" " + _vm._s(_vm.errors.name[0]) + " ")
+                      ])
+                    : _vm._e(),
+                  _vm._v(" "),
                   _c("v-text-field", {
                     attrs: { label: "Name", type: "text", required: "" },
                     model: {
@@ -37559,6 +37572,12 @@ var render = function() {
                 "v-col",
                 { attrs: { cols: "12", md: "6" } },
                 [
+                  _vm.errors.email
+                    ? _c("span", { staticClass: "text-danger" }, [
+                        _vm._v("Error")
+                      ])
+                    : _vm._e(),
+                  _vm._v(" "),
                   _c("v-text-field", {
                     attrs: { label: "E-mail", type: "email", required: "" },
                     model: {
@@ -37577,6 +37596,12 @@ var render = function() {
                 "v-col",
                 { attrs: { cols: "12", md: "6" } },
                 [
+                  _vm.errors.password
+                    ? _c("span", { staticClass: "text-danger" }, [
+                        _vm._v("Error")
+                      ])
+                    : _vm._e(),
+                  _vm._v(" "),
                   _c("v-text-field", {
                     attrs: {
                       label: "Password",
@@ -37599,6 +37624,12 @@ var render = function() {
                 "v-col",
                 { attrs: { cols: "12", md: "6" } },
                 [
+                  _vm.errors.password
+                    ? _c("span", { staticClass: "text-danger" }, [
+                        _vm._v("Error")
+                      ])
+                    : _vm._e(),
+                  _vm._v(" "),
                   _c("v-text-field", {
                     attrs: {
                       label: "Confirm Password",
