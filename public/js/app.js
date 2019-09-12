@@ -1899,10 +1899,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     login: function login() {
-      User.login(this.form);
-      this.$router.push({
-        name: 'forum'
-      }); //router push forum 🍌
+      User.login(this.form); //this.$router.push({name: 'forum'}) //router push forum 🍌
     }
   }
 });

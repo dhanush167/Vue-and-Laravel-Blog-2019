@@ -47,7 +47,7 @@
         methods: {
           login(){
           User.login(this.form)
-         this.$router.push({name: 'forum'}) //router push forum 🍌
+         //this.$router.push({name: 'forum'}) //router push forum 🍌
           }
         }
     }
