@@ -1921,15 +1921,18 @@ __webpack_require__.r(__webpack_exports__);
         email: null,
         password: null,
         password_confirmation: null
-      }
+      },
+      errors: {}
     };
   },
   methods: {
     signup: function signup() {
+      var _this = this;
+
       axios.post('/api/auth/signup', this.form).then(function (res) {
         return User.responseAfterLogin(res);
       })["catch"](function (error) {
-        return console.log(error.response.data);
+        return _this.errors = error.response.data.errors;
       });
     }
   }

@@ -54,14 +54,15 @@
                     email:null,
                     password:null,
                     password_confirmation:null
-                }
+                },
+                errors:{}
             }
         },
         methods: {
             signup() {
                 axios.post('/api/auth/signup',this.form)
                     .then(res => User.responseAfterLogin(res))
-                    .catch(error => console.log(error.response.data))
+                    .catch(error => this.errors = error.response.data.errors)
             }
         }
     }
