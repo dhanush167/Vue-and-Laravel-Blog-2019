@@ -1783,10 +1783,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -1807,11 +1803,20 @@ __webpack_require__.r(__webpack_exports__);
         to: '/login',
         show: !User.loggedIn()
       }, {
+        title: 'SigNup',
+        to: '/signup',
+        show: !User.loggedIn()
+      }, {
         title: 'Logout',
         to: '/logout',
         show: User.loggedIn()
       }]
     };
+  },
+  created: function created() {
+    EventBus.$on('logout', function () {
+      User.logout();
+    });
   }
 });
 
@@ -1884,6 +1889,13 @@ __webpack_require__.r(__webpack_exports__);
         password: null
       }
     };
+  },
+  created: function created() {
+    if (User.loggedIn()) {
+      this.$router.push({
+        name: 'forum'
+      });
+    }
   },
   methods: {
     login: function login() {
@@ -1970,6 +1982,7 @@ __webpack_require__.r(__webpack_exports__);
       errors: {}
     };
   },
+  //SigNup form disappear
   created: function created() {
     if (User.loggedIn()) {
       this.$router.push({
@@ -37373,35 +37386,22 @@ var render = function() {
           _c(
             "ul",
             { staticClass: "navbar-nav" },
-            [
-              _c(
-                "li",
-                { staticClass: "nav-item active" },
-                [
-                  _c("router-link", { attrs: { to: "/signup" } }, [
-                    _c("a", { staticClass: "nav-link" }, [_vm._v("Sign Up")])
-                  ])
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _vm._l(_vm.items, function(item) {
-                return item.show
-                  ? _c(
-                      "router-link",
-                      { key: item.title, attrs: { to: item.to } },
-                      [
-                        _c("li", { staticClass: "nav-item" }, [
-                          _c("a", { staticClass: "nav-link" }, [
-                            _vm._v(_vm._s(item.title))
-                          ])
+            _vm._l(_vm.items, function(item) {
+              return item.show
+                ? _c(
+                    "router-link",
+                    { key: item.title, attrs: { to: item.to } },
+                    [
+                      _c("li", { staticClass: "nav-item" }, [
+                        _c("a", { staticClass: "nav-link" }, [
+                          _vm._v(_vm._s(item.title))
                         ])
-                      ]
-                    )
-                  : _vm._e()
-              })
-            ],
-            2
+                      ])
+                    ]
+                  )
+                : _vm._e()
+            }),
+            1
           )
         ]
       )
@@ -89476,7 +89476,7 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuetify__WEBPACK_IMPORTED_MODULE_1___default.a);
 
 window.User = _Helpers_User__WEBPACK_IMPORTED_MODULE_2__["default"];
-console.log(_Helpers_User__WEBPACK_IMPORTED_MODULE_2__["default"].loggedIn());
+window.EventBus = new vue__WEBPACK_IMPORTED_MODULE_0___default.a();
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue

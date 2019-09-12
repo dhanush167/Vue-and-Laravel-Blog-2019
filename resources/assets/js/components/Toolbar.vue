@@ -9,11 +9,7 @@
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav">
 
-                <li class="nav-item active">
-                    <router-link to="/signup">
-                        <a class="nav-link">Sign Up</a>
-                    </router-link>
-                </li>
+
                     <router-link
                             v-for="item in items"
                             :key="item.title"
@@ -39,10 +35,16 @@
                    {title : 'Ask Question', to: '/ask',show: User.loggedIn()},
                    {title : 'Category', to: '/category',show: User.loggedIn()},
                    {title : 'Login', to: '/login',show: !User.loggedIn()},
-                   {title : 'Logout', to: '/logout',show: User.loggedIn()},
+                   {title : 'SigNup', to: '/signup',show: !User.loggedIn()},
+                   {title : 'Logout', to: '/logout',show: User.loggedIn()}
                ]
            }
-       }
+       },
+        created() {
+           EventBus.$on('logout', () => {
+               User.logout()
+           })
+        }
     }
 </script>
 

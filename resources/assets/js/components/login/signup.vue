@@ -64,6 +64,7 @@
                 errors:{}
             }
         },
+        //SigNup form disappear
         created(){
             if(User.loggedIn()){
                 this.$router.push({name:'forum'})
