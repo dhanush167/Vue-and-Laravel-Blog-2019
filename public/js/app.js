@@ -1900,7 +1900,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['data']
+  props: ['data'],
+  computed: {
+    body: function body() {
+      return this.data.body;
+    }
+  }
 });
 
 /***/ }),
@@ -56913,7 +56918,7 @@ var render = function() {
         [
           _c("v-card-title", [_vm._v(_vm._s(_vm.data.title))]),
           _vm._v(" "),
-          _c("v-card-text", [_vm._v(_vm._s(_vm.data.body))]),
+          _c("v-card-text", { domProps: { innerHTML: _vm._s(_vm.body) } }),
           _vm._v(" "),
           _c("v-card-text", [
             _vm._v("said : " + _vm._s(_vm.data.created_at) + " ")

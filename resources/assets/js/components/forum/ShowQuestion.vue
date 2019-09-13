@@ -2,7 +2,7 @@
     <v-container>
         <v-card>
             <v-card-title>{{data.title}}</v-card-title>
-            <v-card-text>{{data.body}}</v-card-text>
+            <v-card-text v-html="body"></v-card-text>
             <v-card-text>said : {{data.created_at}} </v-card-text>
             <v-card-text> {{data.user}}</v-card-text>
             <!--sdfdsf-->
@@ -18,7 +18,12 @@
 
 <script>
     export default {
-       props: ['data']
+       props: ['data'],
+        computed: {
+           body(){
+            return this.data.body
+           }
+        }
     }
 </script>
 
