@@ -40,8 +40,8 @@
                 EventBus.$emit('cancelEditing')
             },
             update(){
-                axios.put(`/api/question/${this.form.slug}`,this.form)
-                    .then(res => this.cancel)
+                axios.patch(`/api/question/${this.form.slug}`,this.form)
+                    .then(res => this.cancel())
             }
         },
         created(){

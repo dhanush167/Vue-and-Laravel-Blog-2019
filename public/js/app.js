@@ -1865,8 +1865,8 @@ __webpack_require__.r(__webpack_exports__);
     update: function update() {
       var _this = this;
 
-      axios.put("/api/question/".concat(this.form.slug), this.form).then(function (res) {
-        return _this.cancel;
+      axios.patch("/api/question/".concat(this.form.slug), this.form).then(function (res) {
+        return _this.cancel();
       });
     }
   },
