@@ -1,29 +1,20 @@
 <template>
-    <nav class="navbar navbar-dark bg-primary navbar-expand-lg">
+    <v-toolbar>
+        <!-- <v-toolbar-side-icon></v-toolbar-side-icon> -->
+        <v-toolbar-title> <v-icon color="pink">fas fa-heart </v-icon>  VuetifyJs </v-toolbar-title>
+        <v-spacer></v-spacer>
+        <div class="hidden-sm-and-down">
 
+            <router-link
+                    v-for="item in items"
+                    :key="item.title"
+                    :to="item.to"
+                    v-if="item.show">
+                <v-btn flat>{{item.title}}</v-btn>
+            </router-link>
 
-        <a class="navbar-brand" href="#">Dhanushka Gayan</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav">
-
-
-                    <router-link
-                            v-for="item in items"
-                            :key="item.title"
-                            :to="item.to"
-                            v-if="item.show" >
-                        <li class="nav-item">
-                        <a class="nav-link">{{item.title}}</a>
-                        </li>
-                    </router-link>
-            </ul>
         </div>
-
-   </nav>
-
+    </v-toolbar>
 </template>
 
 <script>

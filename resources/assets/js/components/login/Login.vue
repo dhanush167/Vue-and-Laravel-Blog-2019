@@ -1,32 +1,31 @@
 <template>
-        <v-form  @submit.prevent="login">
-            <v-container>
-                <v-row>
+    <v-container>
+        <v-form @submit.prevent="login">
 
-                    <v-col cols="12" md="4">
-                        <v-text-field
-                                v-model="form.email"
-                                label="E-mail"
-                                type="email"
-                                required>
+            <v-text-field
+                    label="E-mail"
+                    v-model="form.email"
+                    type="email"
+                    required
+            ></v-text-field>
 
-                        </v-text-field>
-                    </v-col>
-                    <v-col cols="12" md="4">
-                        <v-text-field
-                                v-model="form.password"
-                                label="Password"
-                                type="password"
-                                required></v-text-field>
-                    </v-col>
-                    <v-col cols="12" md="4">
-                        <button type="submit" class="btn btn-primary btn-lg">Login to Form</button>
-                    </v-col>
-                </v-row>
+            <v-text-field
+                    label="Password"
+                    v-model="form.password"
+                    type="password"
+                    required
+            ></v-text-field>
 
-            </v-container>
+            <v-btn
+                    color="purple"
+                    type="submit"
+            >Login</v-btn>
 
+            <router-link to="/signup">
+                <v-btn color="pink">Sign Up</v-btn>
+            </router-link>
         </v-form>
+    </v-container>
 </template>
 
 <script>
