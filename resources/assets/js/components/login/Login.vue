@@ -16,13 +16,13 @@
                     required
             ></v-text-field>
 
-            <v-btn
+            <v-btn style="color: white"
                     color="purple"
                     type="submit"
             >Login</v-btn>
 
             <router-link to="/signup">
-                <v-btn color="pink">Sign Up</v-btn>
+                <v-btn color="pink" style="color: white">Sign Up</v-btn>
             </router-link>
         </v-form>
     </v-container>
