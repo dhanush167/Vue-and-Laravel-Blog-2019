@@ -1,10 +1,11 @@
 <template>
-    <div>
-        <edit-question v-if="editing"></edit-question>
-        <div v-else>
-            <show-question   :data = question v-if="question">
+    <div v-if="question">
+        <edit-question v-if="editing">:data = question</edit-question>
+            <show-question
+                    v-else
+                    :data = question
+            >
             </show-question>
-        </div>
     </div>
 </template>
 

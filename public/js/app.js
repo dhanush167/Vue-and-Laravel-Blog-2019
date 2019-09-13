@@ -2120,6 +2120,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -57355,23 +57356,17 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    [
-      _vm.editing
-        ? _c("edit-question")
-        : _c(
-            "div",
-            [
-              _vm.question
-                ? _c("show-question", { attrs: { data: _vm.question } })
-                : _vm._e()
-            ],
-            1
-          )
-    ],
-    1
-  )
+  return _vm.question
+    ? _c(
+        "div",
+        [
+          _vm.editing
+            ? _c("edit-question", [_vm._v(":data = question")])
+            : _c("show-question", { attrs: { data: _vm.question } })
+        ],
+        1
+      )
+    : _vm._e()
 }
 var staticRenderFns = []
 render._withStripped = true
