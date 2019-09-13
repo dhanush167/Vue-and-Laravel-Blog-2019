@@ -7,7 +7,7 @@
             <h4><v-card-text v-html="body"></v-card-text></h4>
             <v-card-text>{{data.user}} said : {{data.created_at}} </v-card-text>
             <hr>
-            <span class="group pa-2">
+            <span class="group pa-2" v-if="own">
                 <v-btn icon small>
                    <v-icon color="red">edit</v-icon>
                 </v-btn>
@@ -27,7 +27,7 @@
        props: ['data'],
         data(){
            return {
-               own : User.own(this.data.id)
+               own : User.own(this.data.user_id)
            }
         },
         computed: {

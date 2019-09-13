@@ -1909,7 +1909,7 @@ __webpack_require__.r(__webpack_exports__);
   props: ['data'],
   data: function data() {
     return {
-      own: User.own(this.data.id)
+      own: User.own(this.data.user_id)
     };
   },
   computed: {
@@ -56948,30 +56948,36 @@ var render = function() {
           _vm._v(" "),
           _c("hr"),
           _vm._v(" "),
-          _c(
-            "span",
-            { staticClass: "group pa-2" },
-            [
-              _c(
-                "v-btn",
-                { attrs: { icon: "", small: "" } },
-                [_c("v-icon", { attrs: { color: "red" } }, [_vm._v("edit")])],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "v-btn",
-                { attrs: { icon: "", small: "" } },
+          _vm.own
+            ? _c(
+                "span",
+                { staticClass: "group pa-2" },
                 [
-                  _c("v-icon", { attrs: { color: "purple" } }, [
-                    _vm._v("delete")
-                  ])
+                  _c(
+                    "v-btn",
+                    { attrs: { icon: "", small: "" } },
+                    [
+                      _c("v-icon", { attrs: { color: "red" } }, [
+                        _vm._v("edit")
+                      ])
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "v-btn",
+                    { attrs: { icon: "", small: "" } },
+                    [
+                      _c("v-icon", { attrs: { color: "purple" } }, [
+                        _vm._v("delete")
+                      ])
+                    ],
+                    1
+                  )
                 ],
                 1
               )
-            ],
-            1
-          ),
+            : _vm._e(),
           _vm._v(" "),
           _c("button", { staticClass: "btn btn-danger" }, [
             _c("i", {
@@ -98611,7 +98617,7 @@ function () {
   }, {
     key: "own",
     value: function own(id) {
-      return this.id == id;
+      return this.id() == id;
     }
   }]);
 
