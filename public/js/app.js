@@ -1959,7 +1959,8 @@ __webpack_require__.r(__webpack_exports__);
         category_id: null,
         body: null
       },
-      categories: {}
+      categories: {},
+      errors: {}
     };
   },
   created: function created() {
@@ -1970,7 +1971,15 @@ __webpack_require__.r(__webpack_exports__);
     });
   },
   methods: {
-    create: function create() {}
+    create: function create() {
+      var _this2 = this;
+
+      axios.post("/api/question", this.form).then(function (res) {
+        return _this2.$router.push(res.data.path);
+      })["catch"](function (error) {
+        return _this2.errors = error.response.data.errors;
+      });
+    }
   }
 });
 
