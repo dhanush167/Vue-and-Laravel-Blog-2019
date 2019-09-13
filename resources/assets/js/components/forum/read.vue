@@ -1,7 +1,9 @@
 <template>
-    <show-question   :data = question v-if="question">
-
-    </show-question>
+    <div>
+        <edit-question v-if="editing"></edit-question>
+        <show-question   :data = question v-if="question">
+        </show-question>
+    </div>
 </template>
 
 <script>
@@ -10,7 +12,8 @@
         components:{ShowQuestion},
         data() {
             return {
-                question: null
+                question: null,
+                editing:false
             }
         },
        created() {
