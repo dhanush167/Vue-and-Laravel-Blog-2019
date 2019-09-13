@@ -1858,6 +1858,11 @@ __webpack_require__.r(__webpack_exports__);
       }
     };
   },
+  methods: {
+    cancel: function cancel() {
+      EventBus.$emit('cancelEditing');
+    }
+  },
   created: function created() {
     this.form = this.data;
   }
@@ -2150,6 +2155,9 @@ __webpack_require__.r(__webpack_exports__);
 
       EventBus.$on('startEditing', function () {
         _this.editing = true;
+      });
+      EventBus.$on('cancelEditing', function () {
+        _this.editing = false;
       });
     },
     getQuestion: function getQuestion() {
@@ -56982,7 +56990,7 @@ var render = function() {
                 [
                   _c(
                     "v-btn",
-                    { attrs: { icon: "" } },
+                    { attrs: { icon: "", type: "submit" } },
                     [
                       _c(
                         "v-icon",
@@ -56999,7 +57007,10 @@ var render = function() {
                     [
                       _c(
                         "v-icon",
-                        { attrs: { "x-large": "", color: "purple" } },
+                        {
+                          attrs: { "x-large": "", color: "purple" },
+                          on: { click: _vm.cancel }
+                        },
                         [_vm._v("cancel")]
                       )
                     ],
