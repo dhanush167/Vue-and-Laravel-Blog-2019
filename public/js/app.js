@@ -1926,6 +1926,9 @@ __webpack_require__.r(__webpack_exports__);
       })["catch"](function (error) {
         return console.log(error.response.data);
       });
+    },
+    edit: function edit() {
+      EventBus.$emit('startEditing');
     }
   }
 });
@@ -2078,11 +2081,24 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   created: function created() {
-    var _this = this;
+    this.listen();
+    this.getQuestion();
+  },
+  methods: {
+    listen: function listen() {
+      var _this = this;
 
-    axios.get("/api/question/".concat(this.$route.params.slug)).then(function (res) {
-      return _this.question = res.data.data;
-    });
+      EventBus.$on('startEditing', function () {
+        _this.editing = true;
+      });
+    },
+    getQuestion: function getQuestion() {
+      var _this2 = this;
+
+      axios.get("/api/question/".concat(this.$route.params.slug)).then(function (res) {
+        return _this2.question = res.data.data;
+      });
+    }
   }
 });
 
@@ -56969,7 +56985,7 @@ var render = function() {
                 [
                   _c(
                     "v-btn",
-                    { attrs: { icon: "", small: "" } },
+                    { attrs: { icon: "", small: "" }, on: { click: _vm.edit } },
                     [
                       _c("v-icon", { attrs: { color: "red" } }, [
                         _vm._v("edit")

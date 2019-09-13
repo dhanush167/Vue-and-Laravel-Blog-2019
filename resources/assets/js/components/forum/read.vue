@@ -17,8 +17,19 @@
             }
         },
        created() {
-           axios.get(`/api/question/${this.$route.params.slug}`)
-               .then(res => this.question = res.data.data)
+         this.listen()
+         this.getQuestion()
+       },
+       methods:{
+            listen(){
+                EventBus.$on('startEditing',()=>{
+                    this.editing = true;
+                })
+            },
+           getQuestion() {
+               axios.get(`/api/question/${this.$route.params.slug}`)
+                .then(res => this.question = res.data.data)
+           }
        }
     }
 </script>

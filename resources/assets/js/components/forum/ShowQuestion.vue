@@ -8,7 +8,7 @@
             <v-card-text>{{data.user}} said : {{data.created_at}} </v-card-text>
             <hr>
             <span class="group pa-2" v-if="own">
-                <v-btn icon small>
+                <v-btn icon small @click="edit">
                    <v-icon color="red">edit</v-icon>
                 </v-btn>
                    <v-btn icon small @click="destroy">
@@ -40,7 +40,10 @@
                axios.delete(`/api/question/${this.data.slug}`)
                    .then(res => this.$router.push('/forum'))
                    .catch(error => console.log(error.response.data))
-           }
+           },
+            edit() {
+               EventBus.$emit('startEditing')
+            }
         }
     }
 </script>
