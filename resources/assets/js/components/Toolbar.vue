@@ -1,7 +1,7 @@
 <template>
     <v-toolbar>
         <!-- <v-toolbar-side-icon></v-toolbar-side-icon> -->
-        <v-toolbar-title> <v-icon color="pink">fas fa-heart </v-icon>  VuetifyJs </v-toolbar-title>
+        <v-toolbar-title>  <router-link to="/forum"><v-icon color="pink">  fas fa-heart </v-icon>   VuetifyJs</router-link> </v-toolbar-title>
         <v-spacer></v-spacer>
         <div class="hidden-sm-and-down">
 

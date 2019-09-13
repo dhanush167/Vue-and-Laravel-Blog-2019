@@ -1,13 +1,64 @@
 <template>
-    <h1>Create</h1>
+        <v-container>
+            <v-form @submit.prevent="create">
+
+                <v-text-field
+                        label="Title"
+                        v-model="form.title"
+                        type="text"
+                        required
+                ></v-text-field>
+
+                <!--sdkfjksdljfkldjsf-->
+
+                <v-select
+                        :items="categories"
+                        item-text="name"
+                        item-value="id"
+                        v-model="form.category_id"
+                        label="Category"
+                        autocomplete
+                ></v-select>
+
+              <markdown-editor v-model="form.body"></markdown-editor>
+
+                <!--jklfjsdfjksldfjsdf-->
+                <v-btn
+                style="color:white"
+                color="pink"
+                type="submit"
+                >
+                    Create
+                </v-btn>
+
+            </v-form>
+        </v-container>
 </template>
 
 <script>
     export default {
-        name: "create"
+        data(){
+            return {
+             form :{
+                 title:null,
+                 category_id:null,
+                 body:null
+             },
+                categories: {}
+            }
+        },
+        created(){
+            axios.get('/api/category')
+                .then(res => this.categories = res.data.data)
+        },
+      methods: {
+          create(){
+
+          }
+      }
     }
 </script>
 
-<style scoped>
+<style>
 
 </style>
