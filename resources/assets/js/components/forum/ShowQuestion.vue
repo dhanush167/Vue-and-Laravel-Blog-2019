@@ -2,10 +2,11 @@
 <template>
     <v-container>
         <v-card>
-            <v-card-title>{{data.title}}</v-card-title>
-            <v-card-text v-html="body"></v-card-text>
-            <v-card-text>said : {{data.created_at}} </v-card-text>
-            <v-card-text> {{data.user}}</v-card-text>
+            <v-card-text><h1>{{data.title}}</h1></v-card-text>
+            <hr>
+            <h4><v-card-text v-html="body"></v-card-text></h4>
+            <v-card-text>{{data.user}} said : {{data.created_at}} </v-card-text>
+            <hr>
             <span class="group pa-2">
                 <v-btn icon small>
                    <v-icon color="red">edit</v-icon>
@@ -24,6 +25,11 @@
 <script>
     export default {
        props: ['data'],
+        data(){
+           return {
+               own : User.own(this.data.id)
+           }
+        },
         computed: {
            body(){
             return md.parse(this.data.body)

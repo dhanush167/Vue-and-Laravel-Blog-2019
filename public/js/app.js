@@ -1904,8 +1904,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['data'],
+  data: function data() {
+    return {
+      own: User.own(this.data.id)
+    };
+  },
   computed: {
     body: function body() {
       return md.parse(this.data.body);
@@ -20682,7 +20688,7 @@ if (!CodeMirror.mimeModes.hasOwnProperty("text/html"))
 
 /***/ }),
 
-/***/ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./node_modules/simplemde/dist/simplemde.min.css?e57b":
+/***/ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./node_modules/simplemde/dist/simplemde.min.css":
 /*!***************************************************************************************************************************************!*\
   !*** ./node_modules/css-loader??ref--6-1!./node_modules/postcss-loader/src??ref--6-2!./node_modules/simplemde/dist/simplemde.min.css ***!
   \***************************************************************************************************************************************/
@@ -53062,7 +53068,7 @@ process.umask = function() { return 0; };
 /***/ (function(module, exports, __webpack_require__) {
 
 
-var content = __webpack_require__(/*! !../../css-loader??ref--6-1!../../postcss-loader/src??ref--6-2!./simplemde.min.css */ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./node_modules/simplemde/dist/simplemde.min.css?e57b");
+var content = __webpack_require__(/*! !../../css-loader??ref--6-1!../../postcss-loader/src??ref--6-2!./simplemde.min.css */ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./node_modules/simplemde/dist/simplemde.min.css");
 
 if(typeof content === 'string') content = [[module.i, content, '']];
 
@@ -56921,15 +56927,26 @@ var render = function() {
       _c(
         "v-card",
         [
-          _c("v-card-title", [_vm._v(_vm._s(_vm.data.title))]),
+          _c("v-card-text", [_c("h1", [_vm._v(_vm._s(_vm.data.title))])]),
           _vm._v(" "),
-          _c("v-card-text", { domProps: { innerHTML: _vm._s(_vm.body) } }),
+          _c("hr"),
+          _vm._v(" "),
+          _c(
+            "h4",
+            [_c("v-card-text", { domProps: { innerHTML: _vm._s(_vm.body) } })],
+            1
+          ),
           _vm._v(" "),
           _c("v-card-text", [
-            _vm._v("said : " + _vm._s(_vm.data.created_at) + " ")
+            _vm._v(
+              _vm._s(_vm.data.user) +
+                " said : " +
+                _vm._s(_vm.data.created_at) +
+                " "
+            )
           ]),
           _vm._v(" "),
-          _c("v-card-text", [_vm._v(" " + _vm._s(_vm.data.user))]),
+          _c("hr"),
           _vm._v(" "),
           _c(
             "span",
@@ -98590,6 +98607,11 @@ function () {
         var payload = _Token__WEBPACK_IMPORTED_MODULE_0__["default"].payload(_AppStorage__WEBPACK_IMPORTED_MODULE_1__["default"].getToken());
         return payload.sub;
       }
+    }
+  }, {
+    key: "own",
+    value: function own(id) {
+      return this.id == id;
     }
   }]);
 
