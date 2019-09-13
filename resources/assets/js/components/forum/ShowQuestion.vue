@@ -1,3 +1,4 @@
+<script src="../../app.js"></script>
 <template>
     <v-container>
         <v-card>
@@ -21,7 +22,7 @@
        props: ['data'],
         computed: {
            body(){
-            return this.data.body
+            return md.parse(this.data.body)
            }
         }
     }
