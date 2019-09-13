@@ -11,7 +11,7 @@
                 <v-btn icon small>
                    <v-icon color="red">edit</v-icon>
                 </v-btn>
-                   <v-btn icon small>
+                   <v-btn icon small @click="destroy">
                    <v-icon color="purple">delete</v-icon>
                 </v-btn>
             </span>
@@ -33,6 +33,13 @@
         computed: {
            body(){
             return md.parse(this.data.body)
+           }
+        },
+        methods: {
+           destroy() {
+               axios.delete(`/api/question/${this.data.slug}`)
+                   .then(res => this.$router.push('/forum'))
+                   .catch(error => console.log(error.response.data))
            }
         }
     }
