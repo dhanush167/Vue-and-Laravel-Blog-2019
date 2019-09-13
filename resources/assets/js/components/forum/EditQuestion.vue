@@ -1,6 +1,6 @@
 <template>
    <v-container fluid>
-       <v-form>
+       <v-form @submit.prevent="update">
        <v-text-field
                label="Title"
                v-model="form.title"
@@ -38,6 +38,10 @@
         methods: {
             cancel(){
                 EventBus.$emit('cancelEditing')
+            },
+            update(){
+                axios.put(`/api/question/${this.form.slug}`,this.form)
+                    .then(res => this.cancel)
             }
         },
         created(){

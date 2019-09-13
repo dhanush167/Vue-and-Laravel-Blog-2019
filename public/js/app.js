@@ -1861,6 +1861,13 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     cancel: function cancel() {
       EventBus.$emit('cancelEditing');
+    },
+    update: function update() {
+      var _this = this;
+
+      axios.put("/api/question/".concat(this.form.slug), this.form).then(function (res) {
+        return _this.cancel;
+      });
     }
   },
   created: function created() {
@@ -56958,6 +56965,14 @@ var render = function() {
     [
       _c(
         "v-form",
+        {
+          on: {
+            submit: function($event) {
+              $event.preventDefault()
+              return _vm.update($event)
+            }
+          }
+        },
         [
           _c("v-text-field", {
             attrs: { label: "Title", type: "text", required: "" },
