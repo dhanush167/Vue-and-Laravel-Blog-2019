@@ -26,14 +26,18 @@
 
 <script>
     export default {
-       data(){
-           return {
-               form : {
-                   title : null,
-                   body : null
-               }
-           }
-       }
+        props:['data'],
+        data(){
+            return {
+                form : {
+                    title : null,
+                    body : null
+                }
+            }
+        },
+        created(){
+            this.form = this.data
+        }
     }
 </script>
 

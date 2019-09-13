@@ -1849,6 +1849,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
+  props: ['data'],
   data: function data() {
     return {
       form: {
@@ -1856,6 +1857,9 @@ __webpack_require__.r(__webpack_exports__);
         body: null
       }
     };
+  },
+  created: function created() {
+    this.form = this.data;
   }
 });
 
@@ -2110,6 +2114,8 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ShowQuestion__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ShowQuestion */ "./resources/assets/js/components/forum/ShowQuestion.vue");
 /* harmony import */ var _EditQuestion__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./EditQuestion */ "./resources/assets/js/components/forum/EditQuestion.vue");
+//
+//
 //
 //
 //
@@ -57361,7 +57367,7 @@ var render = function() {
         "div",
         [
           _vm.editing
-            ? _c("edit-question", [_vm._v(":data = question")])
+            ? _c("edit-question", { attrs: { data: _vm.question } })
             : _c("show-question", { attrs: { data: _vm.question } })
         ],
         1
