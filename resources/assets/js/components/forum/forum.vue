@@ -13,9 +13,9 @@
             <question v-for="ques in question" :key="ques.path" :data=ques></question>
             </div>
             <div class="col-md-5">
-                <h3>Project One</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium veniam exercitationem expedita laborum at voluptate. Labore, voluptates totam at aut nemo deserunt rem magni pariatur quos perspiciatis atque eveniet unde.</p>
-                <a class="btn btn-primary" href="#">View Project</a>
+                <v-flex>
+                    <app-sidebar></app-sidebar>
+                </v-flex>
             </div>
         </div>
 
@@ -26,13 +26,14 @@
 
 <script>
     import question from "./question";
+    import AppSidebar from "./AppSidebar";
     export default {
         data(){
             return {
                 question:{}
             }
         },
-      components:{question},
+      components:{question,AppSidebar},
         created() {
           axios.get('/api/question')
               .then(res => this.question = res.data.data)
