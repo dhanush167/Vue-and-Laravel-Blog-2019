@@ -20,16 +20,20 @@
                                 <v-icon color="orange">edit</v-icon>
                             </v-btn>
                         </v-list-tile-action>
+
                         <v-list-tile-content>
                             <v-list-tile-title>
                                 {{category.name}}
                             </v-list-tile-title>
                         </v-list-tile-content>
+
                         <v-list-tile-action>
                             <v-btn icon small @click="destroy(category.slug)">
                                 <v-icon color="red">delete</v-icon>
                             </v-btn>
                         </v-list-tile-action>
+
+
                     </v-list-tile>
                     <v-divider></v-divider>
                 </div>
@@ -40,6 +44,7 @@
 
 <script>
     export default {
+
        data() {
            return {
                form :{
@@ -50,15 +55,19 @@
        },
         created() {
             axios.get('/api/category')
-                .then(res => this.categories = res.data.data)
+             .then(res => this.categories = res.data.data)
         },
         methods: {
            submit(){
-               axios.post('/api/category',this.form)
-                   .then(res => console.log(res.data))
+                   axios.post('/api/category', this.form)
+                       .then(res => {
+                           this.categories.unshift(res.data);
+                           this.form.name = null;
+                       })
            },
-            destroy(slug) {
-               axios.delete(`/api/category/${slug}`)
+            destroy(slug, index) {
+                axios.delete(`/api/category/${slug}`)
+                .then(res => this.categories.splice(index, 1));
             }
         }
     }
