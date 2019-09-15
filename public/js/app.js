@@ -1826,8 +1826,30 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "createCategory"
+  data: function data() {
+    return {
+      form: {
+        name: null
+      }
+    };
+  },
+  methods: {
+    submit: function submit() {
+      axios.post('/api/category', this.form).then(function (res) {
+        return console.log(res.data);
+      });
+    }
+  }
 });
 
 /***/ }),
@@ -57022,7 +57044,45 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("h1", [_vm._v("category")])
+  return _c(
+    "v-container",
+    [
+      _c(
+        "v-form",
+        {
+          on: {
+            submit: function($event) {
+              $event.preventDefault()
+              return _vm.submit($event)
+            }
+          }
+        },
+        [
+          _c("v-text-field", {
+            attrs: { label: "Category Name", required: "" },
+            model: {
+              value: _vm.form.name,
+              callback: function($$v) {
+                _vm.$set(_vm.form, "name", $$v)
+              },
+              expression: "form.name"
+            }
+          }),
+          _vm._v(" "),
+          _c(
+            "v-btn",
+            {
+              staticStyle: { color: "white" },
+              attrs: { type: "submit", color: "purple" }
+            },
+            [_vm._v("Create")]
+          )
+        ],
+        1
+      )
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true

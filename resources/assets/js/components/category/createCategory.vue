@@ -1,10 +1,31 @@
 <template>
-    <h1>category</h1>
+    <v-container>
+        <v-form @submit.prevent="submit">
+            <v-text-field
+                    label="Category Name"
+                    v-model="form.name"
+                    required
+            ></v-text-field>
+            <v-btn type="submit" style="color:white" color="purple">Create</v-btn>
+        </v-form>
+    </v-container>
 </template>
 
 <script>
     export default {
-        name: "createCategory"
+       data() {
+           return {
+               form :{
+                   name:null
+               }
+           }
+       },
+        methods: {
+           submit(){
+               axios.post('/api/category',this.form)
+                   .then(res => console.log(res.data))
+           }
+        }
     }
 </script>
 
