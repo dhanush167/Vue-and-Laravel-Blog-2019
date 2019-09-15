@@ -1883,6 +1883,9 @@ __webpack_require__.r(__webpack_exports__);
       axios.post('/api/category', this.form).then(function (res) {
         return console.log(res.data);
       });
+    },
+    destroy: function destroy(slug) {
+      axios["delete"]("/api/category/".concat(slug));
     }
   }
 });
@@ -57177,7 +57180,14 @@ var render = function() {
                         [
                           _c(
                             "v-btn",
-                            { attrs: { icon: "", small: "" } },
+                            {
+                              attrs: { icon: "", small: "" },
+                              on: {
+                                click: function($event) {
+                                  return _vm.destroy(category.slug)
+                                }
+                              }
+                            },
                             [
                               _c("v-icon", { attrs: { color: "red" } }, [
                                 _vm._v("delete")
