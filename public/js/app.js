@@ -1788,7 +1788,7 @@ __webpack_require__.r(__webpack_exports__);
       }, {
         title: 'Category',
         to: '/category',
-        show: User.loggedIn()
+        show: User.admin()
       }, {
         title: 'Login',
         to: '/login',
