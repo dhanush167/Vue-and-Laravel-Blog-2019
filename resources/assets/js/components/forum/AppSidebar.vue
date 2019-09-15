@@ -4,9 +4,9 @@
             <v-toolbar-title>   <h3>Categories</h3> </v-toolbar-title>
         </v-toolbar>
         <v-list>
-            <v-list-tile>
+            <v-list-tile  v-for="category in categories" :key="category.id">
                 <v-list-tile-content>
-                    <v-list-tile-title>CatesSSSSS</v-list-tile-title>
+                    <v-list-tile-title>{{category.name}}</v-list-tile-title>
                 </v-list-tile-content>
             </v-list-tile>
         </v-list>

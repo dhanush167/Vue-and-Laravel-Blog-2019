@@ -57015,19 +57015,20 @@ var render = function() {
       _vm._v(" "),
       _c(
         "v-list",
-        [
-          _c(
+        _vm._l(_vm.categories, function(category) {
+          return _c(
             "v-list-tile",
+            { key: category.id },
             [
               _c(
                 "v-list-tile-content",
-                [_c("v-list-tile-title", [_vm._v("CatesSSSSS")])],
+                [_c("v-list-tile-title", [_vm._v(_vm._s(category.name))])],
                 1
               )
             ],
             1
           )
-        ],
+        }),
         1
       )
     ],
