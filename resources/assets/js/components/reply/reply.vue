@@ -15,7 +15,7 @@
                   </v-icon>
               </v-btn>
               <v-btn>
-                  <v-icon>
+                  <v-icon @click="destroy">
                       cancel
                   </v-icon>
               </v-btn>
@@ -26,10 +26,15 @@
 
 <script>
     export default {
-       props:['data'],
+       props:['data','index'],
         computed:{
            own(){
               return  User.own(this.data.user_id)
+           }
+        },
+        methods: {
+           destroy() {
+               EventBus.$emit('deleteReply', this.index)
            }
         }
     }

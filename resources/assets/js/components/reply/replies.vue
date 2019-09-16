@@ -1,8 +1,9 @@
 <template>
 <div>
     <reply
-            v-for="reply in content"
+            v-for="(reply,index) in content"
             :key="reply.id"
+            :index=index
             v-if="replies"
             :data="reply">
     </reply>
@@ -26,6 +27,9 @@
             listen(){
                 EventBus.$on('newReply',(reply) => {
                     this.content.unshift(reply)
+                })
+                EventBus.$on('deleteReply',(index) => {
+                    this.content.splice(index,1);
                 })
             }
         }

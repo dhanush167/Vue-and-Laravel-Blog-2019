@@ -2607,6 +2607,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['replies'],
@@ -2627,6 +2628,9 @@ __webpack_require__.r(__webpack_exports__);
 
       EventBus.$on('newReply', function (reply) {
         _this.content.unshift(reply);
+      });
+      EventBus.$on('deleteReply', function (index) {
+        _this.content.splice(index, 1);
       });
     }
   }
@@ -2670,10 +2674,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['data'],
+  props: ['data', 'index'],
   computed: {
     own: function own() {
       return User.own(this.data.user_id);
+    }
+  },
+  methods: {
+    destroy: function destroy() {
+      EventBus.$emit('deleteReply', this.index);
     }
   }
 });
@@ -58263,9 +58272,9 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    _vm._l(_vm.content, function(reply) {
+    _vm._l(_vm.content, function(reply, index) {
       return _vm.replies
-        ? _c("reply", { key: reply.id, attrs: { data: reply } })
+        ? _c("reply", { key: reply.id, attrs: { index: index, data: reply } })
         : _vm._e()
     }),
     1
@@ -58333,7 +58342,7 @@ var render = function() {
                   _c(
                     "v-btn",
                     [
-                      _c("v-icon", [
+                      _c("v-icon", { on: { click: _vm.destroy } }, [
                         _vm._v("\n                  cancel\n              ")
                       ])
                     ],
