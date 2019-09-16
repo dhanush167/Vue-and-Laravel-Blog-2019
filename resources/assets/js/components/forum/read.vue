@@ -11,7 +11,7 @@
         <v-container>
             <replies :replies="question.replies">
             </replies>
-            <new-reply></new-reply>
+            <new-reply :questionSlug="question.slug"></new-reply>
         </v-container>
     </div>
 </template>

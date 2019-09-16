@@ -1,7 +1,7 @@
 <template>
 <div>
     <reply
-            v-for="reply in replies"
+            v-for="reply in content"
             :key="reply.id"
             v-if="replies"
             :data="reply">
@@ -13,7 +13,23 @@
     import Reply from './reply'
     export default {
         props: ['replies'],
-        components:{Reply}
+        data(){
+            return{
+                content:this.replies
+            }
+        },
+        components:{Reply},
+        created() {
+            this.listen()
+        },
+        methods:{
+            listen(){
+                EventBus.$on('newReply',(reply) => {
+                    this.content.unshift(reply)
+                })
+            }
+        }
+
     }
 </script>
 

@@ -2563,10 +2563,23 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
+  props: ['questionSlug'],
   data: function data() {
     return {
       body: null
     };
+  },
+  methods: {
+    submit: function submit() {
+      var _this = this;
+
+      axios.post("/api/question/".concat(this.questionSlug, "/reply"), {
+        body: this.body
+      }).then(function (res) {
+        _this.body = ' ';
+        EventBus.$emit('newReply', res.data.reply);
+      });
+    }
   }
 });
 
@@ -2596,8 +2609,25 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['replies'],
+  data: function data() {
+    return {
+      content: this.replies
+    };
+  },
   components: {
     Reply: _reply__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  created: function created() {
+    this.listen();
+  },
+  methods: {
+    listen: function listen() {
+      var _this = this;
+
+      EventBus.$on('newReply', function (reply) {
+        _this.content.unshift(reply);
+      });
+    }
   }
 });
 
@@ -57922,7 +57952,7 @@ var render = function() {
             [
               _c("replies", { attrs: { replies: _vm.question.replies } }),
               _vm._v(" "),
-              _c("new-reply")
+              _c("new-reply", { attrs: { questionSlug: _vm.question.slug } })
             ],
             1
           )
@@ -58203,7 +58233,7 @@ var render = function() {
         }
       }),
       _vm._v(" "),
-      _c("v-btn", [_vm._v("\n    Reply\n  ")])
+      _c("v-btn", { on: { click: _vm.submit } }, [_vm._v("\n    Reply\n  ")])
     ],
     1
   )
@@ -58232,7 +58262,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    _vm._l(_vm.replies, function(reply) {
+    _vm._l(_vm.content, function(reply) {
       return _vm.replies
         ? _c("reply", { key: reply.id, attrs: { data: reply } })
         : _vm._e()
