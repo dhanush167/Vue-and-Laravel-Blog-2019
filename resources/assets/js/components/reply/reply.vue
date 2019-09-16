@@ -1,5 +1,12 @@
 <template>
-    <h1>Reply</h1>
+    <div>
+        <v-card>
+            <v-card-title>
+                <div> username - </div>
+                <div>  said {{data.created_at}}</div>
+            </v-card-title>
+        </v-card>
+    </div>
 </template>
 
 <script>
