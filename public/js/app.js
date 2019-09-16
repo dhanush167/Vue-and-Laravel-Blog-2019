@@ -2580,7 +2580,9 @@ __webpack_require__.r(__webpack_exports__);
     update: function update() {
       var _this = this;
 
-      axios.patch("/api/question/".concat(this.reply.question_slug, "/reply/").concat(this.reply.id)).then(function (res) {
+      axios.patch("/api/question/".concat(this.reply.question_slug, "/reply/").concat(this.reply.id), {
+        body: this.reply.reply
+      }).then(function (res) {
         return _this.cancel();
       });
     }
