@@ -1,10 +1,12 @@
 <template>
-    <h1>Editing </h1>
+    <div>
+        <markdown-editor v-model="reply.reply"></markdown-editor>
+    </div>
 </template>
 
 <script>
     export default {
-        name: "EditReply"
+       props:['reply']
     }
 </script>
 

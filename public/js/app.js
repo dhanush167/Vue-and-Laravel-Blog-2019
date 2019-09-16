@@ -2557,8 +2557,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "EditReply"
+  props: ['reply']
 });
 
 /***/ }),
@@ -2667,6 +2669,8 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _editReply__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./editReply */ "./resources/assets/js/components/reply/editReply.vue");
+//
+//
 //
 //
 //
@@ -58265,7 +58269,21 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("h1", [_vm._v("Editing ")])
+  return _c(
+    "div",
+    [
+      _c("markdown-editor", {
+        model: {
+          value: _vm.reply.reply,
+          callback: function($$v) {
+            _vm.$set(_vm.reply, "reply", $$v)
+          },
+          expression: "reply.reply"
+        }
+      })
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -58383,33 +58401,45 @@ var render = function() {
           _c("v-divider"),
           _vm._v(" "),
           _vm.editing
-            ? _c("edit-reply")
+            ? _c("edit-reply", { attrs: { reply: _vm.data } })
             : _c("v-card-text", { domProps: { innerHTML: _vm._s(_vm.reply) } }),
           _vm._v(" "),
-          _vm.own
+          !_vm.editing
             ? _c(
-                "v-card-actions",
+                "div",
                 [
-                  _c(
-                    "v-btn",
-                    { on: { click: _vm.edit } },
-                    [
-                      _c("v-icon", [
-                        _vm._v("\n                  edit\n              ")
-                      ])
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "v-btn",
-                    [
-                      _c("v-icon", { on: { click: _vm.destroy } }, [
-                        _vm._v("\n                  cancel\n              ")
-                      ])
-                    ],
-                    1
-                  )
+                  _vm.own
+                    ? _c(
+                        "v-card-actions",
+                        [
+                          _c(
+                            "v-btn",
+                            { on: { click: _vm.edit } },
+                            [
+                              _c("v-icon", [
+                                _vm._v(
+                                  "\n                        edit\n                    "
+                                )
+                              ])
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "v-btn",
+                            [
+                              _c("v-icon", { on: { click: _vm.destroy } }, [
+                                _vm._v(
+                                  "\n                        cancel\n                    "
+                                )
+                              ])
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      )
+                    : _vm._e()
                 ],
                 1
               )

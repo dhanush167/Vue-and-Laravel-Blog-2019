@@ -6,21 +6,23 @@
                 <div class="ml-2">  said {{data.created_at}}</div>
             </v-card-title>
             <v-divider></v-divider>
-            <edit-reply v-if="editing"></edit-reply>
-            <v-card-text v-else   v-html="reply">
-            </v-card-text>
-          <v-card-actions v-if="own">
-              <v-btn @click="edit">
-                  <v-icon>
-                      edit
-                  </v-icon>
-              </v-btn>
-              <v-btn>
-                  <v-icon @click="destroy">
-                      cancel
-                  </v-icon>
-              </v-btn>
-          </v-card-actions>
+
+            <edit-reply :reply=data v-if="editing"></edit-reply>
+            <v-card-text v-else   v-html="reply"></v-card-text>
+            <div v-if="!editing">
+                <v-card-actions v-if="own">
+                    <v-btn @click="edit">
+                        <v-icon>
+                            edit
+                        </v-icon>
+                    </v-btn>
+                    <v-btn>
+                        <v-icon @click="destroy">
+                            cancel
+                        </v-icon>
+                    </v-btn>
+                </v-card-actions>
+            </div>
         </v-card>
     </div>
 </template>
