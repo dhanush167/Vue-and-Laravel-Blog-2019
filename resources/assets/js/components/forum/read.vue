@@ -8,8 +8,11 @@
                 v-else
                 :data = question
         ></show-question>
-        <replies :replies="question.replies"></replies>
-        <new-reply></new-reply>
+        <v-container>
+            <replies :replies="question.replies">
+            </replies>
+            <new-reply></new-reply>
+        </v-container>
     </div>
 </template>
 

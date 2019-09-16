@@ -1,10 +1,19 @@
 <template>
-    <h1>New Reply</h1>
+  <div class="mt-5">
+    <markdown-editor v-model="body"></markdown-editor>
+    <v-btn>
+      Reply
+    </v-btn>
+  </div>
 </template>
 
 <script>
     export default {
-        name: "newReply"
+      data(){
+        return {
+         body:null
+        }
+      }
     }
 </script>
 

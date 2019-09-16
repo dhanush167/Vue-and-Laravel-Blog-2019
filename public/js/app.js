@@ -2316,6 +2316,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 
 
@@ -2554,8 +2557,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "newReply"
+  data: function data() {
+    return {
+      body: null
+    };
+  }
 });
 
 /***/ }),
@@ -57905,9 +57917,15 @@ var render = function() {
             ? _c("edit-question", { attrs: { data: _vm.question } })
             : _c("show-question", { attrs: { data: _vm.question } }),
           _vm._v(" "),
-          _c("replies", { attrs: { replies: _vm.question.replies } }),
-          _vm._v(" "),
-          _c("new-reply")
+          _c(
+            "v-container",
+            [
+              _c("replies", { attrs: { replies: _vm.question.replies } }),
+              _vm._v(" "),
+              _c("new-reply")
+            ],
+            1
+          )
         ],
         1
       )
@@ -58171,7 +58189,24 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("h1", [_vm._v("New Reply")])
+  return _c(
+    "div",
+    { staticClass: "mt-5" },
+    [
+      _c("markdown-editor", {
+        model: {
+          value: _vm.body,
+          callback: function($$v) {
+            _vm.body = $$v
+          },
+          expression: "body"
+        }
+      }),
+      _vm._v(" "),
+      _c("v-btn", [_vm._v("\n    Reply\n  ")])
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -58196,7 +58231,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c(
-    "v-container",
+    "div",
     _vm._l(_vm.replies, function(reply) {
       return _vm.replies
         ? _c("reply", { key: reply.id, attrs: { data: reply } })
