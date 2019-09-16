@@ -9,6 +9,7 @@
                 :data = question
         ></show-question>
         <replies :replies="question.replies"></replies>
+        <new-reply></new-reply>
     </div>
 </template>
 
@@ -16,8 +17,9 @@
     import ShowQuestion from "./ShowQuestion";
     import EditQuestion from "./EditQuestion";
     import Replies from "../reply/replies";
+    import NewReply from "../reply/newReply";
     export default {
-        components:{ShowQuestion,EditQuestion,Replies},
+        components:{ShowQuestion,EditQuestion,Replies,NewReply},
         data() {
             return {
                 question: null,
