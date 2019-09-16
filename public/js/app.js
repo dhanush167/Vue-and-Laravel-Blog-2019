@@ -2559,8 +2559,24 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['reply']
+  props: ['reply'],
+  methods: {
+    cancel: function cancel() {},
+    update: function update() {}
+  }
 });
 
 /***/ }),
@@ -2669,6 +2685,8 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _editReply__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./editReply */ "./resources/assets/js/components/reply/editReply.vue");
+//
+//
 //
 //
 //
@@ -58280,7 +58298,30 @@ var render = function() {
           },
           expression: "reply.reply"
         }
-      })
+      }),
+      _vm._v(" "),
+      _c(
+        "v-card-actions",
+        [
+          _c(
+            "v-btn",
+            { on: { click: _vm.update } },
+            [_c("v-icon", [_vm._v("\n                save\n            ")])],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "v-btn",
+            [
+              _c("v-icon", { on: { click: _vm.cancel } }, [
+                _vm._v("\n                cancel\n            ")
+              ])
+            ],
+            1
+          )
+        ],
+        1
+      )
     ],
     1
   )
@@ -101121,8 +101162,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\laragon\www\real-time-single-page\resources\assets\js\app.js */"./resources/assets/js/app.js");
-module.exports = __webpack_require__(/*! C:\laragon\www\real-time-single-page\resources\assets\sass\app.scss */"./resources/assets/sass/app.scss");
+__webpack_require__(/*! C:\Users\Android\Documents\GitHub\real-time-single-forum-app-vue-and-laravel-edit\resources\assets\js\app.js */"./resources/assets/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\Android\Documents\GitHub\real-time-single-forum-app-vue-and-laravel-edit\resources\assets\sass\app.scss */"./resources/assets/sass/app.scss");
 
 
 /***/ }),

@@ -9,6 +9,7 @@
 
             <edit-reply :reply=data v-if="editing"></edit-reply>
             <v-card-text v-else   v-html="reply"></v-card-text>
+            <!-- apple comment 🍎 -->
             <div v-if="!editing">
                 <v-card-actions v-if="own">
                     <v-btn @click="edit">
@@ -23,6 +24,7 @@
                     </v-btn>
                 </v-card-actions>
             </div>
+            <!-- apple comment 🍎 -->
         </v-card>
     </div>
 </template>
