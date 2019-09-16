@@ -1,10 +1,12 @@
 <template>
     <div>
-        <v-card>
+        <v-card class="mt-4">
             <v-card-title>
-                <div> username - </div>
-                <div>  said {{data.created_at}}</div>
+                <div class="headline"> {{data.user}} - </div>
+                <div class="ml-2">  said {{data.created_at}}</div>
             </v-card-title>
+            <v-card-text v-html="data.reply">
+            </v-card-text>
         </v-card>
     </div>
 </template>

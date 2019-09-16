@@ -2587,6 +2587,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['data']
 });
@@ -58160,12 +58162,19 @@ var render = function() {
     [
       _c(
         "v-card",
+        { staticClass: "mt-4" },
         [
           _c("v-card-title", [
-            _c("div", [_vm._v(" username - ")]),
+            _c("div", { staticClass: "headline" }, [
+              _vm._v(" " + _vm._s(_vm.data.user) + " - ")
+            ]),
             _vm._v(" "),
-            _c("div", [_vm._v("  said " + _vm._s(_vm.data.created_at))])
-          ])
+            _c("div", { staticClass: "ml-2" }, [
+              _vm._v("  said " + _vm._s(_vm.data.created_at))
+            ])
+          ]),
+          _vm._v(" "),
+          _c("v-card-text", { domProps: { innerHTML: _vm._s(_vm.data.reply) } })
         ],
         1
       )
