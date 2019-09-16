@@ -15,7 +15,7 @@
                    <v-icon color="purple">delete</v-icon>
                 </v-btn>
             </span>
-            <button class="btn btn-danger"> <i class="fa fa-comments" aria-hidden="true"> </i> 5 REPLY</button>
+            <button class="btn btn-danger"> <i class="fa fa-comments" aria-hidden="true"> </i>  {{data.reply_count}}  REPLY </button>
         </v-card>
     </v-container>
 </template>
