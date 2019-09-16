@@ -21,7 +21,7 @@
        props:['reply'],
         methods:{
            cancel(){
-
+               EventBus.$emit('cancelEditing');
            },
             update(){
 

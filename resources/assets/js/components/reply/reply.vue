@@ -19,7 +19,7 @@
                     </v-btn>
                     <v-btn>
                         <v-icon @click="destroy">
-                            cancel
+                            delete
                         </v-icon>
                     </v-btn>
                 </v-card-actions>
@@ -47,12 +47,20 @@
                 return md.parse(this.data.reply)
             }
         },
+        created() {
+           this.listen()
+        },
         methods: {
            destroy() {
                EventBus.$emit('deleteReply', this.index)
            },
             edit() {
                this.editing = true
+            },
+            listen(){
+               EventBus.$on('cancelEditing',()=>{
+                   this.editing = false;
+               })
             }
         }
     }

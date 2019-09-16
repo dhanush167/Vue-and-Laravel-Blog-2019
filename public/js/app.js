@@ -2574,7 +2574,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['reply'],
   methods: {
-    cancel: function cancel() {},
+    cancel: function cancel() {
+      EventBus.$emit('cancelEditing');
+    },
     update: function update() {}
   }
 });
@@ -2735,12 +2737,22 @@ __webpack_require__.r(__webpack_exports__);
       return md.parse(this.data.reply);
     }
   },
+  created: function created() {
+    this.listen();
+  },
   methods: {
     destroy: function destroy() {
       EventBus.$emit('deleteReply', this.index);
     },
     edit: function edit() {
       this.editing = true;
+    },
+    listen: function listen() {
+      var _this = this;
+
+      EventBus.$on('cancelEditing', function () {
+        _this.editing = false;
+      });
     }
   }
 });
@@ -58471,7 +58483,7 @@ var render = function() {
                             [
                               _c("v-icon", { on: { click: _vm.destroy } }, [
                                 _vm._v(
-                                  "\n                        cancel\n                    "
+                                  "\n                        delete\n                    "
                                 )
                               ])
                             ],
