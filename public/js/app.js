@@ -2576,8 +2576,9 @@ __webpack_require__.r(__webpack_exports__);
       axios.post("/api/question/".concat(this.questionSlug, "/reply"), {
         body: this.body
       }).then(function (res) {
-        _this.body = ' ';
+        _this.body = '';
         EventBus.$emit('newReply', res.data.reply);
+        window.scrollTo(0, 0);
       });
     }
   }
