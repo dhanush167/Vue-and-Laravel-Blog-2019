@@ -9,7 +9,7 @@
                 :data = question
         ></show-question>
         <v-container>
-            <replies :replies="question.replies">
+            <replies :question="question">
             </replies>
             <new-reply :questionSlug="question.slug"></new-reply>
         </v-container>
