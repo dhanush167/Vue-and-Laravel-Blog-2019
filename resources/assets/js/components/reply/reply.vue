@@ -6,10 +6,11 @@
                 <div class="ml-2">  said {{data.created_at}}</div>
             </v-card-title>
             <v-divider></v-divider>
-            <v-card-text v-html="reply">
+            <edit-reply v-if="editing"></edit-reply>
+            <v-card-text v-else   v-html="reply">
             </v-card-text>
           <v-card-actions v-if="own">
-              <v-btn>
+              <v-btn @click="edit">
                   <v-icon>
                       edit
                   </v-icon>
@@ -25,8 +26,15 @@
 </template>
 
 <script>
+    import EditReply from './editReply'
     export default {
        props:['data','index'],
+        components:{EditReply},
+        data() {
+           return{
+               editing:false
+           }
+        },
         computed:{
            own(){
               return  User.own(this.data.user_id)
@@ -38,7 +46,10 @@
         methods: {
            destroy() {
                EventBus.$emit('deleteReply', this.index)
-           }
+           },
+            edit() {
+               this.editing = true
+            }
         }
     }
 </script>
