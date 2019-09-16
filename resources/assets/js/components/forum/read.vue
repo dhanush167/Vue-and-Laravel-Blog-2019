@@ -8,7 +8,7 @@
                 v-else
                 :data = question
         ></show-question>
-        <replies></replies>
+        <replies :replies="question.replies"></replies>
     </div>
 </template>
 
