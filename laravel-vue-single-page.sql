@@ -11,7 +11,7 @@
  Target Server Version : 50724
  File Encoding         : 65001
 
- Date: 12/09/2019 13:20:57
+ Date: 16/09/2019 19:34:29
 */
 
 SET NAMES utf8mb4;
@@ -28,36 +28,34 @@ CREATE TABLE `categories`  (
   `created_at` timestamp(0) NULL DEFAULT NULL,
   `updated_at` timestamp(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 26 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 51 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of categories
 -- ----------------------------
-INSERT INTO `categories` VALUES (1, 'et', 'et', '2019-09-06 18:18:36', '2019-09-06 18:18:36');
 INSERT INTO `categories` VALUES (2, 'recusandae', 'recusandae', '2019-09-06 18:18:36', '2019-09-06 18:18:36');
-INSERT INTO `categories` VALUES (3, 'quaerat', 'quaerat', '2019-09-06 18:18:36', '2019-09-06 18:18:36');
-INSERT INTO `categories` VALUES (4, 'et', 'et', '2019-09-06 18:18:36', '2019-09-06 18:18:36');
-INSERT INTO `categories` VALUES (5, 'illo', 'illo', '2019-09-06 18:18:36', '2019-09-06 18:18:36');
 INSERT INTO `categories` VALUES (6, 'dolorem', 'dolorem', '2019-09-06 18:20:07', '2019-09-06 18:20:07');
-INSERT INTO `categories` VALUES (7, 'enim', 'enim', '2019-09-06 18:20:07', '2019-09-06 18:20:07');
-INSERT INTO `categories` VALUES (8, 'illum', 'illum', '2019-09-06 18:20:07', '2019-09-06 18:20:07');
-INSERT INTO `categories` VALUES (9, 'eos', 'eos', '2019-09-06 18:20:07', '2019-09-06 18:20:07');
+INSERT INTO `categories` VALUES (8, 'illuminate', 'illuminate', '2019-09-06 18:20:07', '2019-09-15 20:07:23');
 INSERT INTO `categories` VALUES (10, 'voluptas', 'voluptas', '2019-09-06 18:20:07', '2019-09-06 18:20:07');
 INSERT INTO `categories` VALUES (11, 'voluptatem', 'voluptatem', '2019-09-06 18:21:54', '2019-09-06 18:21:54');
 INSERT INTO `categories` VALUES (12, 'eius', 'eius', '2019-09-06 18:21:54', '2019-09-06 18:21:54');
 INSERT INTO `categories` VALUES (13, 'harum', 'harum', '2019-09-06 18:21:54', '2019-09-06 18:21:54');
-INSERT INTO `categories` VALUES (14, 'et', 'et', '2019-09-06 18:21:54', '2019-09-06 18:21:54');
 INSERT INTO `categories` VALUES (15, 'cum', 'cum', '2019-09-06 18:21:54', '2019-09-06 18:21:54');
 INSERT INTO `categories` VALUES (16, 'unde', 'unde', '2019-09-06 18:23:49', '2019-09-06 18:23:49');
 INSERT INTO `categories` VALUES (17, 'ullam', 'ullam', '2019-09-06 18:23:49', '2019-09-06 18:23:49');
-INSERT INTO `categories` VALUES (18, 'lara khandd', 'lara-khandd', '2019-09-06 18:23:49', '2019-09-07 14:05:21');
 INSERT INTO `categories` VALUES (19, 'molestiae', 'molestiae', '2019-09-06 18:23:49', '2019-09-06 18:23:49');
 INSERT INTO `categories` VALUES (20, 'maxime', 'maxime', '2019-09-06 18:23:49', '2019-09-06 18:23:49');
 INSERT INTO `categories` VALUES (21, 'lara khandd', 'lara-khandd', '2019-09-06 18:24:39', '2019-09-07 14:06:15');
 INSERT INTO `categories` VALUES (22, 'dolorem', 'dolorem', '2019-09-06 18:24:39', '2019-09-06 18:24:39');
 INSERT INTO `categories` VALUES (23, 'lara khan', 'lara-khan', '2019-09-06 18:24:39', '2019-09-07 10:56:44');
-INSERT INTO `categories` VALUES (24, 'est', 'est', '2019-09-06 18:24:39', '2019-09-06 18:24:39');
 INSERT INTO `categories` VALUES (25, 'jeeza budy he maz', 'jeeza-budy-he-maz', '2019-09-06 18:24:39', '2019-09-07 14:16:04');
+INSERT INTO `categories` VALUES (27, 'Hellodolly', 'hellodolly', '2019-09-15 17:57:01', '2019-09-15 17:57:01');
+INSERT INTO `categories` VALUES (29, 'Wordpress', 'wordpress', '2019-09-15 18:02:06', '2019-09-15 18:02:06');
+INSERT INTO `categories` VALUES (31, 'something', 'something', '2019-09-15 18:09:06', '2019-09-15 18:09:06');
+INSERT INTO `categories` VALUES (32, 'Node', 'node', '2019-09-15 18:10:54', '2019-09-15 18:10:54');
+INSERT INTO `categories` VALUES (33, 'React', 'react', '2019-09-15 18:12:11', '2019-09-15 18:12:11');
+INSERT INTO `categories` VALUES (49, 'brandnew', 'brandnew', '2019-09-15 20:00:26', '2019-09-15 20:04:49');
+INSERT INTO `categories` VALUES (50, 'jackmas', 'jackmas', '2019-09-15 20:05:57', '2019-09-15 20:40:30');
 
 -- ----------------------------
 -- Table structure for likes
@@ -172,7 +170,7 @@ CREATE TABLE `questions`  (
   `created_at` timestamp(0) NULL DEFAULT NULL,
   `updated_at` timestamp(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 53 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 58 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of questions
@@ -223,6 +221,8 @@ INSERT INTO `questions` VALUES (49, 'Minus est et impedit labore soluta quis.', 
 INSERT INTO `questions` VALUES (50, 'Sit omnis atque labore.', 'sit-omnis-atque-labore', 'Omnis eligendi vel velit. Laborum totam eligendi corporis sed. Consequatur tenetur consequatur ab dicta enim qui sequi.', 24, 7, '2019-09-06 18:24:39', '2019-09-06 18:24:39');
 INSERT INTO `questions` VALUES (51, 'update something', 'vinods-alos-slslow-la-la', 'eiciendis illum ad voluptas officia. Vitae et eligendi eligendi aliquam. Omnis et quas minus sit modi lala', 7, 1, '2019-09-07 06:06:30', '2019-09-07 06:06:30');
 INSERT INTO `questions` VALUES (52, 'dhanushka gayan jayaweera', 'vinods-alos-slslow-la-l', 'eiciendis illum ad voluptas officia.ro ro Vitae et eligendi eligendi aliquam. Omnis et quas minus sit modi lala', 14, 1, '2019-09-07 06:13:05', '2019-09-07 06:13:05');
+INSERT INTO `questions` VALUES (54, 'Why is ReactJS so popula !!! it\'s works fine', 'why-is-reactjs-so-popular', '**Here are a few reasons why**  !!!! \nReact has become so popular so quickly: Working with the DOM API is hard. React basically gives developers the ability to work with a virtual browser that is more friendly than the real browser. ... After that, your JavaScript skills are what make you a better React developer\n.\n1. Why is React JS more popular than AngularJS?	9 posts	May 23, 2018\n1. Vue.js seems to be much more productive than React.js ...	9 posts	Mar 22, 2019\n1. Is React surpassing Angular as of late 2018 in terms of ...	4 posts	Oct 26, 2018\n1. Why is React.JS more popular nowadays?	6 posts	Apr 5, 2018\n1. More results from', 3, 61, '2019-09-13 14:02:22', '2019-09-13 20:48:49');
+INSERT INTO `questions` VALUES (57, 'A Stateful Component', 'a-stateful-component', '# A JavaScript library for building user interfaces\n\n> In addition to taking input data **(accessed via this.props)**, *a component can maintain internal state data* (accessed via this.state). When a component’s state data changes, the rendered markup will be updated by re-invoking render().\n> \n\n### **Declarative**\n\nReact makes it painless to create interactive UIs. Design simple views for each state in your application, and React will efficiently update and render just the right components when your data changes.\n\nDeclarative views make your code more predictable and easier to debug.', 11, 61, '2019-09-13 18:07:11', '2019-09-13 18:07:11');
 
 -- ----------------------------
 -- Table structure for replies
@@ -238,7 +238,7 @@ CREATE TABLE `replies`  (
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `replies_question_id_foreign`(`question_id`) USING BTREE,
   CONSTRAINT `replies_question_id_foreign` FOREIGN KEY (`question_id`) REFERENCES `questions` (`id`) ON DELETE CASCADE ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 251 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 267 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of replies
@@ -457,6 +457,18 @@ INSERT INTO `replies` VALUES (246, 'Soluta quae repudiandae voluptas ut. Nemo et
 INSERT INTO `replies` VALUES (247, 'Ullam ipsum quaerat libero et iusto quas ab. Nihil provident consequuntur consequatur quae accusantium. Saepe velit vero sunt repellendus id vero.', 2, 4, '2019-09-06 18:24:43', '2019-09-06 18:24:43');
 INSERT INTO `replies` VALUES (249, 'Id mollitia corporis suscipit veniam ea omnis sit. Distinctio eligendi ut exercitationem. Aut assumenda iste illum voluptatum qui qui eos.', 39, 13, '2019-09-06 18:24:43', '2019-09-06 18:24:43');
 INSERT INTO `replies` VALUES (250, 'Quidem alias pariatur quos non fuga error nihil. Aspernatur sit delectus quia sit. Sequi pariatur aut fuga fuga.', 1, 11, '2019-09-06 18:24:43', '2019-09-06 18:24:43');
+INSERT INTO `replies` VALUES (251, 'test me if you can', 52, 61, '2019-09-16 11:22:52', '2019-09-16 11:22:52');
+INSERT INTO `replies` VALUES (252, 'ragana', 52, 61, '2019-09-16 11:26:43', '2019-09-16 11:26:43');
+INSERT INTO `replies` VALUES (253, 'hello dolly', 52, 61, '2019-09-16 11:41:49', '2019-09-16 11:41:49');
+INSERT INTO `replies` VALUES (254, '# ***anthor reply sssss***', 52, 61, '2019-09-16 11:56:48', '2019-09-16 11:56:48');
+INSERT INTO `replies` VALUES (255, 'ragoneneneeneneskljdfkldsjf dfjdsklfjdskljf sdfsdklf sdkjflkdsjfpqjkfdlflkfj dsfdklsfjklsdjfdsffsd', 52, 61, '2019-09-16 11:59:00', '2019-09-16 11:59:00');
+INSERT INTO `replies` VALUES (256, 'ehslsl sdlkfjlsdkf dslkfjdklsfj dslkfdskljfds fkldsjflkdsjfkldsj sdlkjfksdljfds fdsjklfdjsfsdfds', 52, 61, '2019-09-16 12:00:16', '2019-09-16 12:00:16');
+INSERT INTO `replies` VALUES (257, 'HEldolly we anoumos', 52, 61, '2019-09-16 12:00:40', '2019-09-16 12:00:40');
+INSERT INTO `replies` VALUES (258, 'fds fdsfsdfdsfsdf sdfsdfds sdfsdfsdfdsfsd', 52, 61, '2019-09-16 12:05:35', '2019-09-16 12:05:35');
+INSERT INTO `replies` VALUES (259, 'Hello DOlly', 52, 61, '2019-09-16 12:06:03', '2019-09-16 12:06:03');
+INSERT INTO `replies` VALUES (260, 'Djanog is my favorite frame workd any time', 52, 61, '2019-09-16 12:50:13', '2019-09-16 12:50:13');
+INSERT INTO `replies` VALUES (265, 'dososdkfjsf sdklfjsdklfjsdklfjsd fkjsdkljsdlkfjsdfds', 57, 61, '2019-09-16 13:56:28', '2019-09-16 13:56:28');
+INSERT INTO `replies` VALUES (266, 'this is for editing part', 57, 61, '2019-09-16 14:03:40', '2019-09-16 14:03:40');
 
 -- ----------------------------
 -- Table structure for users
@@ -472,7 +484,7 @@ CREATE TABLE `users`  (
   `updated_at` timestamp(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE INDEX `users_email_unique`(`email`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 62 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 63 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of users
@@ -536,5 +548,6 @@ INSERT INTO `users` VALUES (58, 'lala', 'lala@gmail.com', '$2y$10$7uw1R/vvxdfNxR
 INSERT INTO `users` VALUES (59, 'jojo', 'jojo@gmail.com', '$2y$10$EouocLPR6/qMkS9Ao5p4heZKxzaZZRWrfifR/3aX3LAsMOEOp8wp.', NULL, '2019-09-12 04:26:48', '2019-09-12 04:26:48');
 INSERT INTO `users` VALUES (60, 'eewwo', 'eewwo@gmail.com', '$2y$10$jGk.c.DEb2gpeTSiVxSTvuiuEyXKlwUwFGkZDxoGSkfWpAQj67ZEe', NULL, '2019-09-12 04:43:14', '2019-09-12 04:43:14');
 INSERT INTO `users` VALUES (61, 'mogno', 'jangoose@gmail.com', '$2y$10$FsQJ6WkRGu6p2In4AnvnleSS766Ag0jOGEKVi9U9kfqaTWckA/nJ6', NULL, '2019-09-12 05:18:32', '2019-09-12 05:18:32');
+INSERT INTO `users` VALUES (62, 'rawana', 'missionrawana@gmail.com', '$2y$10$1f8XJ2PcBs6XUwrsFwuj8.eCvHLvA3O3Ikm0ruZYLNkhwWO8kKdt.', NULL, '2019-09-13 10:40:10', '2019-09-13 10:40:10');
 
 SET FOREIGN_KEY_CHECKS = 1;
