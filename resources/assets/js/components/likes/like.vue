@@ -25,10 +25,12 @@
                }
            },
            incr() {
-               this.count ++
+               axios.post(`/api/like/${this.content.id}`)
+                   .then(res => this.count ++)
            },
            decr() {
-               this.count --
+               axios.delete(`/api/like/${this.content.id}`)
+                   .then(res => this.count --)
            }
        }
     }

@@ -2398,10 +2398,18 @@ __webpack_require__.r(__webpack_exports__);
       }
     },
     incr: function incr() {
-      this.count++;
+      var _this = this;
+
+      axios.post("/api/like/".concat(this.content.id)).then(function (res) {
+        return _this.count++;
+      });
     },
     decr: function decr() {
-      this.count--;
+      var _this2 = this;
+
+      axios["delete"]("/api/like/".concat(this.content.id)).then(function (res) {
+        return _this2.count--;
+      });
     }
   }
 });
