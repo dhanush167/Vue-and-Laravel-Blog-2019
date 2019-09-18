@@ -87,6 +87,8 @@ Laravel is accessible, yet powerful, providing tools needed for large, robust ap
 
 `php artisan migrate`
 
+`php artisan make:controller NotificationController`
+
 **how to clone this web app**
 
 <ul>
