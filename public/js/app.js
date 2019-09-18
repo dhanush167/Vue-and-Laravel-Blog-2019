@@ -2392,7 +2392,8 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     likeIt: function likeIt() {
       if (User.loggedIn()) {
-        this.liked ? this.incr : this.decr();
+        this.liked ? this.incr() : this.decr();
+        this.liked = !this.liked;
       }
     },
     incr: function incr() {

@@ -19,7 +19,8 @@
        methods: {
            likeIt(){
                if (User.loggedIn()) {
-                   this.liked ? this.incr : this.decr()
+                   this.liked ? this.incr() : this.decr()
+                   this.liked = !this.liked
                }
            },
            incr() {
