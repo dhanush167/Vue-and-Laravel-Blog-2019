@@ -2383,10 +2383,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
+  props: ['content'],
   data: function data() {
     return {
       liked: false,
-      count: 0
+      count: this.content.like_count
     };
   },
   methods: {
@@ -58551,7 +58552,7 @@ var render = function() {
               _vm._v(" "),
               _c("v-spacer"),
               _vm._v(" "),
-              _c("like")
+              _c("like", { attrs: { content: _vm.data } })
             ],
             1
           ),

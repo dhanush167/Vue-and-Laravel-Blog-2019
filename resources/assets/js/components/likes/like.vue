@@ -10,10 +10,11 @@
 
 <script>
     export default {
+        props:['content'],
         data() {
             return {
                 liked: false,
-                count:0
+                count:this.content.like_count
             }
         },
        methods: {
