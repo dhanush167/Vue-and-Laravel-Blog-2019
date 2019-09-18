@@ -2390,6 +2390,11 @@ __webpack_require__.r(__webpack_exports__);
       count: this.content.like_count
     };
   },
+  computed: {
+    color: function color() {
+      return this.liked ? 'pink' : 'purple';
+    }
+  },
   methods: {
     likeIt: function likeIt() {
       if (User.loggedIn()) {

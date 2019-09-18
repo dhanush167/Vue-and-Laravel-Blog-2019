@@ -17,6 +17,11 @@
                 count:this.content.like_count
             }
         },
+        computed:{
+            color(){
+                return this.liked ? 'pink' : 'purple';
+            }
+        },
        methods: {
            likeIt(){
                if (User.loggedIn()) {
