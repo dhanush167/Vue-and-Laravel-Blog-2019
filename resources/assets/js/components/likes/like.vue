@@ -3,7 +3,7 @@
         <v-btn icon @click="likeIt">
                <v-icon color="red">
                 favorite
-               </v-icon> 5
+               </v-icon> {{count}}
         </v-btn>
     </div>
 </template>

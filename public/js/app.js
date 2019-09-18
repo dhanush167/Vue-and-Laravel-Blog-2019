@@ -58129,7 +58129,7 @@ var render = function() {
           _c("v-icon", { attrs: { color: "red" } }, [
             _vm._v("\n            favorite\n           ")
           ]),
-          _vm._v(" 5\n    ")
+          _vm._v(" " + _vm._s(_vm.count) + "\n    ")
         ],
         1
       )
