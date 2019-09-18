@@ -1800,6 +1800,11 @@ __webpack_require__.r(__webpack_exports__);
         _this.unread = res.data.unread;
         _this.unreadCount = res.data.unread.length;
       });
+    },
+    read: function read(readnotification) {
+      axios.post('/api/markAsRead', {
+        id: notification.id
+      });
     }
   }
 });
@@ -57439,7 +57444,9 @@ var render = function() {
             "v-btn",
             { attrs: { slot: "activator", icon: "" }, slot: "activator" },
             [
-              _c("v-icon", { attrs: { color: "red" } }, [_vm._v("add_alert")]),
+              _c("v-icon", { attrs: { color: "purple" } }, [
+                _vm._v("add_alert")
+              ]),
               _vm._v("5\n        ")
             ],
             1
@@ -57462,7 +57469,7 @@ var render = function() {
                           {
                             on: {
                               click: function($event) {
-                                return _vm.readIt(item.data)
+                                return _vm.read(item.data)
                               }
                             }
                           },

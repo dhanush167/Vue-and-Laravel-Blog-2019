@@ -2,12 +2,12 @@
     <div class="text-xs-center">
         <v-menu offset-y>
             <v-btn icon slot="activator">
-                <v-icon color="red">add_alert</v-icon>5
+                <v-icon color="purple">add_alert</v-icon>5
             </v-btn>
             <v-list>
                 <v-list-tile v-for="item in unread" :key="item.id">
                     <router-link :to="item.data.path">
-                        <v-list-tile-title @click="readIt(item.data)">{{item.data.question}}</v-list-tile-title>
+                        <v-list-tile-title @click="read(item.data)">{{item.data.question}}</v-list-tile-title>
                     </router-link>
                 </v-list-tile>
 
@@ -44,6 +44,9 @@
                         this.unreadCount = res.data.unread.length
                     })
             },
+            read(readnotification){
+                axios.post('/api/markAsRead',{id:notification.id})
+            }
         }
 
     }
