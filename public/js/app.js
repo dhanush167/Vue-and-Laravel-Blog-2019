@@ -2386,14 +2386,14 @@ __webpack_require__.r(__webpack_exports__);
   props: ['content'],
   data: function data() {
     return {
-      liked: false,
+      liked: this.content.liked,
       count: this.content.like_count
     };
   },
   methods: {
     likeIt: function likeIt() {
       if (User.loggedIn()) {
-        this.liked ? this.incr() : this.decr();
+        this.liked ? this.decr() : this.incr();
         this.liked = !this.liked;
       }
     },

@@ -13,14 +13,14 @@
         props:['content'],
         data() {
             return {
-                liked: false,
+                liked:this.content.liked,
                 count:this.content.like_count
             }
         },
        methods: {
            likeIt(){
                if (User.loggedIn()) {
-                   this.liked ? this.incr() : this.decr()
+                   this.liked ? this.decr() : this.incr()
                    this.liked = !this.liked
                }
            },
