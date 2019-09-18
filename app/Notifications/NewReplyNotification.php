@@ -6,6 +6,7 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
+use App\Model\Reply;
 
 class NewReplyNotification extends Notification
 {
@@ -20,7 +21,7 @@ class NewReplyNotification extends Notification
      */
     public function __construct(Reply $reply)
     {
-       $this->reply = $reply;
+        $this->reply = $reply;
     }
 
     /**
@@ -43,7 +44,9 @@ class NewReplyNotification extends Notification
     public function toArray($notifiable)
     {
         return [
-            //
+            'replyBy' => $this->reply->user->name,
+            'question' => $this->reply->question->title,
+            'path' => $this->reply->question->path,
         ];
     }
 }
