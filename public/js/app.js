@@ -1761,6 +1761,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "AppNotification"
 });
@@ -57389,9 +57398,40 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c(
-    "v-btn",
-    { attrs: { icon: "" } },
-    [_c("v-icon", { attrs: { color: "purple" } }, [_vm._v("add_alert")])],
+    "div",
+    { staticClass: "text-xs-center" },
+    [
+      _c(
+        "v-menu",
+        { attrs: { "offset-y": "" } },
+        [
+          _c(
+            "v-btn",
+            { attrs: { slot: "activator", icon: "" }, slot: "activator" },
+            [
+              _c("v-icon", { attrs: { color: "purple" } }, [
+                _vm._v("add_alert")
+              ]),
+              _vm._v(" 5\n        ")
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "v-list",
+            [
+              _c(
+                "v-list-tile",
+                [_c("v-list-tile-title", [_vm._v("Notification")])],
+                1
+              )
+            ],
+            1
+          )
+        ],
+        1
+      )
+    ],
     1
   )
 }
