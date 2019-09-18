@@ -58141,7 +58141,7 @@ var render = function() {
         "v-btn",
         { attrs: { icon: "" }, on: { click: _vm.likeIt } },
         [
-          _c("v-icon", { attrs: { color: "red" } }, [
+          _c("v-icon", { attrs: { color: _vm.color } }, [
             _vm._v("\n            favorite\n           ")
           ]),
           _vm._v(" " + _vm._s(_vm.count) + "\n    ")
