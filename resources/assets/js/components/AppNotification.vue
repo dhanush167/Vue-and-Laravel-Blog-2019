@@ -4,17 +4,17 @@
             <v-btn icon slot="activator">
                 <v-icon color="purple">add_alert</v-icon>5
             </v-btn>
-            <v-list>
+            <v-list style="z-index:999999">
                 <v-list-tile v-for="item in unread" :key="item.id">
-                    <router-link :to="item.data.path">
-                        <v-list-tile-title @click="readIt(item.data)">{{item.data.question}}</v-list-tile-title>
+                    <router-link :to="item.path">
+                        <v-list-tile-title @click="readIt(item)">{{item.question}}</v-list-tile-title>
                     </router-link>
                 </v-list-tile>
 
                 <v-divider></v-divider>
 
                 <v-list-tile v-for="item in read" :key="item.id">
-                    <v-list-tile-title>{{item.data.question}}</v-list-tile-title>
+                    <v-list-tile-title>{{item.question}}</v-list-tile-title>
                 </v-list-tile>
             </v-list>
         </v-menu>

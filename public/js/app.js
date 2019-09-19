@@ -57462,6 +57462,7 @@ var render = function() {
           _vm._v(" "),
           _c(
             "v-list",
+            { staticStyle: { "z-index": "999999" } },
             [
               _vm._l(_vm.unread, function(item) {
                 return _c(
@@ -57470,18 +57471,18 @@ var render = function() {
                   [
                     _c(
                       "router-link",
-                      { attrs: { to: item.data.path } },
+                      { attrs: { to: item.path } },
                       [
                         _c(
                           "v-list-tile-title",
                           {
                             on: {
                               click: function($event) {
-                                return _vm.readIt(item.data)
+                                return _vm.readIt(item)
                               }
                             }
                           },
-                          [_vm._v(_vm._s(item.data.question))]
+                          [_vm._v(_vm._s(item.question))]
                         )
                       ],
                       1
@@ -57497,11 +57498,7 @@ var render = function() {
                 return _c(
                   "v-list-tile",
                   { key: item.id },
-                  [
-                    _c("v-list-tile-title", [
-                      _vm._v(_vm._s(item.data.question))
-                    ])
-                  ],
+                  [_c("v-list-tile-title", [_vm._v(_vm._s(item.question))])],
                   1
                 )
               })
