@@ -7,7 +7,7 @@
             <v-list>
                 <v-list-tile v-for="item in unread" :key="item.id">
                     <router-link :to="item.data.path">
-                        <v-list-tile-title @click="read(item.data)">{{item.data.question}}</v-list-tile-title>
+                        <v-list-tile-title @click="readIt(item.data)">{{item.data.question}}</v-list-tile-title>
                     </router-link>
                 </v-list-tile>
 
@@ -44,8 +44,13 @@
                         this.unreadCount = res.data.unread.length
                     })
             },
-            read(readnotification){
+            readIt(notification){
                 axios.post('/api/markAsRead',{id:notification.id})
+                    .then(res => {
+                        this.unread.splice(notification,1)
+                        this.read.push(notification)
+                        this.unreadCount--
+                    })
             }
         }
 

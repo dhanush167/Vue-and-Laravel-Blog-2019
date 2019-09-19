@@ -1801,9 +1801,17 @@ __webpack_require__.r(__webpack_exports__);
         _this.unreadCount = res.data.unread.length;
       });
     },
-    read: function read(readnotification) {
+    readIt: function readIt(notification) {
+      var _this2 = this;
+
       axios.post('/api/markAsRead', {
         id: notification.id
+      }).then(function (res) {
+        _this2.unread.splice(notification, 1);
+
+        _this2.read.push(notification);
+
+        _this2.unreadCount--;
       });
     }
   }
@@ -21334,7 +21342,7 @@ if (!CodeMirror.mimeModes.hasOwnProperty("text/html"))
 
 /***/ }),
 
-/***/ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./node_modules/simplemde/dist/simplemde.min.css?e57b":
+/***/ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./node_modules/simplemde/dist/simplemde.min.css":
 /*!***************************************************************************************************************************************!*\
   !*** ./node_modules/css-loader??ref--6-1!./node_modules/postcss-loader/src??ref--6-2!./node_modules/simplemde/dist/simplemde.min.css ***!
   \***************************************************************************************************************************************/
@@ -53714,7 +53722,7 @@ process.umask = function() { return 0; };
 /***/ (function(module, exports, __webpack_require__) {
 
 
-var content = __webpack_require__(/*! !../../css-loader??ref--6-1!../../postcss-loader/src??ref--6-2!./simplemde.min.css */ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./node_modules/simplemde/dist/simplemde.min.css?e57b");
+var content = __webpack_require__(/*! !../../css-loader??ref--6-1!../../postcss-loader/src??ref--6-2!./simplemde.min.css */ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./node_modules/simplemde/dist/simplemde.min.css");
 
 if(typeof content === 'string') content = [[module.i, content, '']];
 
@@ -57469,7 +57477,7 @@ var render = function() {
                           {
                             on: {
                               click: function($event) {
-                                return _vm.read(item.data)
+                                return _vm.readIt(item.data)
                               }
                             }
                           },

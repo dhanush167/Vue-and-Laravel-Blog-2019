@@ -89,6 +89,8 @@ Laravel is accessible, yet powerful, providing tools needed for large, robust ap
 
 `php artisan make:controller NotificationController`
 
+`php artisan make:resource NotificatonResource`
+
 **how to clone this web app**
 
 <ul>
