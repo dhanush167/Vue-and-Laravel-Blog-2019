@@ -1777,7 +1777,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -1813,6 +1812,11 @@ __webpack_require__.r(__webpack_exports__);
 
         _this2.unreadCount--;
       });
+    }
+  },
+  computed: {
+    color: function color() {
+      return this.unreadCount > 0 ? 'red' : 'red lighten-4';
     }
   }
 });
@@ -1856,6 +1860,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
+      loggedIn: User.loggedIn(),
       items: [{
         title: 'Forum',
         to: '/forum',
@@ -57452,17 +57457,16 @@ var render = function() {
             "v-btn",
             { attrs: { slot: "activator", icon: "" }, slot: "activator" },
             [
-              _c("v-icon", { attrs: { color: "purple" } }, [
+              _c("v-icon", { attrs: { color: _vm.color } }, [
                 _vm._v("add_alert")
               ]),
-              _vm._v("5\n        ")
+              _vm._v(_vm._s(_vm.unreadCount) + "\n        ")
             ],
             1
           ),
           _vm._v(" "),
           _c(
             "v-list",
-            { staticStyle: { "z-index": "999999" } },
             [
               _vm._l(_vm.unread, function(item) {
                 return _c(
@@ -57557,7 +57561,7 @@ var render = function() {
       _vm._v(" "),
       _c("v-spacer"),
       _vm._v(" "),
-      _c("app-notification"),
+      _vm.loggedIn ? _c("app-notification") : _vm._e(),
       _vm._v(" "),
       _c(
         "div",

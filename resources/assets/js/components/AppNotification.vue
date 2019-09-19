@@ -2,15 +2,14 @@
     <div class="text-xs-center">
         <v-menu offset-y>
             <v-btn icon slot="activator">
-                <v-icon color="purple">add_alert</v-icon>5
+                <v-icon :color="color">add_alert</v-icon>{{unreadCount}}
             </v-btn>
-            <v-list style="z-index:999999">
+            <v-list>
                 <v-list-tile v-for="item in unread" :key="item.id">
                     <router-link :to="item.path">
                         <v-list-tile-title @click="readIt(item)">{{item.question}}</v-list-tile-title>
                     </router-link>
                 </v-list-tile>
-
                 <v-divider></v-divider>
 
                 <v-list-tile v-for="item in read" :key="item.id">
@@ -52,8 +51,12 @@
                         this.unreadCount--
                     })
             }
+        },
+        computed:{
+            color(){
+                return this.unreadCount > 0 ? 'red' : 'red lighten-4'
+            }
         }
-
     }
 </script>
 
