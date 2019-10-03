@@ -49,4 +49,12 @@ class NewReplyNotification extends Notification
             'path' => $this->reply->question->path,
         ];
     }
+    public function toBroadcast($notifiable)
+    {
+        return new BroadcastMessage([
+               'invoice_id' => $this->invoice->id,
+               'amount' => $this->invoice->amount,
+        ]);
+    }
+    
 }
