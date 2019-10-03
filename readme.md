@@ -103,3 +103,12 @@ Laravel is accessible, yet powerful, providing tools needed for large, robust ap
 **20.Pusher**
 
 `composer require pusher/pusher-php-server "~3.0"`
+
+`npm install --save laravel-echo pusher-js`
+
+
+
+
+
+
+
