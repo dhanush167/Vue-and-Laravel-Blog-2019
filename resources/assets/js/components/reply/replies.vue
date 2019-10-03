@@ -25,15 +25,19 @@
             listen(){
                 EventBus.$on('newReply',(reply) => {
                     this.content.unshift(reply)
-                })
+                });
 
                 EventBus.$on('deleteReply',(index) => {
                     axios.delete(`/api/question/${this.question.slug}/reply/${this.content[index].id}`)
                         .then(res => {
                             this.content.splice(index,1)
                         })
-                })
+                });
 
+                Echo.private('App.User.' + User.id())
+                    .notification((notification) => {
+                        console.log (notification.typeof);
+                    });
             }
         }
 
