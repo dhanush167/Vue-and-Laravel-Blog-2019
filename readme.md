@@ -106,7 +106,7 @@ Laravel is accessible, yet powerful, providing tools needed for large, robust ap
 
 `npm install --save laravel-echo pusher-js`
 
-
+`php artisan event:generate`
 
 
 
