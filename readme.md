@@ -100,5 +100,6 @@ Laravel is accessible, yet powerful, providing tools needed for large, robust ap
 </ul>
 
 
+**20.Pusher**
 
-
+`composer require pusher/pusher-php-server "~3.0"`
