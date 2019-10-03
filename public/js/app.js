@@ -2480,8 +2480,12 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   created: function created() {
+    var _this = this;
+
     Echo.channel('likeChannel').listen('LikeEvent', function (e) {
-      console.log(e);
+      if (_this.content.id == e.id) {
+        e.type == 1 ? _this.count++ : _this.count--;
+      }
     });
   },
   methods: {
@@ -2492,17 +2496,17 @@ __webpack_require__.r(__webpack_exports__);
       }
     },
     incr: function incr() {
-      var _this = this;
+      var _this2 = this;
 
       axios.post("/api/like/".concat(this.content.id)).then(function (res) {
-        return _this.count++;
+        return _this2.count++;
       });
     },
     decr: function decr() {
-      var _this2 = this;
+      var _this3 = this;
 
       axios["delete"]("/api/like/".concat(this.content.id)).then(function (res) {
-        return _this2.count--;
+        return _this3.count--;
       });
     }
   }
