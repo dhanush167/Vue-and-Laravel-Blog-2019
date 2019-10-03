@@ -2479,6 +2479,11 @@ __webpack_require__.r(__webpack_exports__);
       return this.liked ? 'pink' : 'purple';
     }
   },
+  created: function created() {
+    Echo.channel('likeChannel').listen('LikeEvent', function (e) {
+      console.log(e);
+    });
+  },
   methods: {
     likeIt: function likeIt() {
       if (User.loggedIn()) {

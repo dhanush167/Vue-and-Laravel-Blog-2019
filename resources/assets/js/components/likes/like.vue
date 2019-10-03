@@ -22,6 +22,12 @@
                 return this.liked ? 'pink' : 'purple';
             }
         },
+        created() {
+            Echo.channel('likeChannel')
+                .listen('LikeEvent', (e) => {
+                    console.log(e);
+                })
+        },
        methods: {
            likeIt(){
                if (User.loggedIn()) {
