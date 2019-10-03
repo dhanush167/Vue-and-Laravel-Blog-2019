@@ -3,6 +3,7 @@
 namespace App\Notifications;
 
 use Illuminate\Bus\Queueable;
+use Illuminate\Notifications\Messages\BroadcastMessage;
 use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
@@ -32,7 +33,7 @@ class NewReplyNotification extends Notification
      */
     public function via($notifiable)
     {
-        return ['database'];
+        return ['database','broadcast'];
     }
 
     /**
@@ -58,5 +59,5 @@ class NewReplyNotification extends Notification
             'reply' => $this->reply
         ]);
     }
-    
+
 }
