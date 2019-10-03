@@ -2,6 +2,7 @@
 
 namespace App\Notifications;
 
+use App\Http\Resources\ReplyResource;
 use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Messages\BroadcastMessage;
 use Illuminate\Notifications\Notification;
@@ -56,7 +57,7 @@ class NewReplyNotification extends Notification
             'replyBy' => $this->reply->user->name,
             'question' => $this->reply->question->title,
             'path' => $this->reply->question->path,
-            'reply' => $this->reply
+            'reply' => new ReplyResource($this->reply)
         ]);
     }
 
