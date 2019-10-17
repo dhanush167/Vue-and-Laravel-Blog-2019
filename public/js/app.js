@@ -2831,7 +2831,7 @@ __webpack_require__.r(__webpack_exports__);
         });
       });
       Echo["private"]('App.User.' + User.id()).notification(function (notification) {
-        console.log(notification["typeof"]);
+        console.log(notification.type);
       });
     }
   }
@@ -107977,13 +107977,23 @@ if (token) {
  */
 
 
+$.ajaxSetup({
+  headers: {
+    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+  }
+});
 
 window.Pusher = __webpack_require__(/*! pusher-js */ "./node_modules/pusher-js/dist/web/pusher.js");
 window.Echo = new laravel_echo__WEBPACK_IMPORTED_MODULE_0__["default"]({
   broadcaster: 'pusher',
   key: "99b49fea99ea73659e26",
   cluster: "ap2",
-  encrypted: true
+  encrypted: true,
+  auth: {
+    headers: {
+      Authorization: JwtToken
+    }
+  }
 });
 
 /***/ }),

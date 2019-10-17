@@ -36,7 +36,7 @@
 
                 Echo.private('App.User.' + User.id())
                     .notification((notification) => {
-                        console.log (notification.typeof);
+                       console.log(notification.type);
                     });
             }
         }

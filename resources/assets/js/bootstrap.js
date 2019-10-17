@@ -23,7 +23,7 @@ try {
 window.axios = require('axios');
 
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
-const JwtToken = `Bearer ${localStorage.getItem('token')}`
+const JwtToken = `Bearer ${localStorage.getItem('token')}`;
 window.axios.defaults.headers.common['Authorization'] = JwtToken;
 /**
  * Next we will register the CSRF Token as a common header with Axios so that
@@ -44,6 +44,11 @@ if (token) {
  * for events that are broadcast by Laravel. Echo and event broadcasting
  * allows your team to easily build robust real-time web applications.
  */
+$.ajaxSetup({
+    headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+});
 
 import Echo from 'laravel-echo'
 
@@ -53,5 +58,12 @@ window.Echo = new Echo({
     broadcaster: 'pusher',
     key: "99b49fea99ea73659e26",
     cluster: "ap2",
-    encrypted: true
+    encrypted: true,
+    auth: {
+        headers: {
+            Authorization: JwtToken
+        }
+    }
 });
+
+
