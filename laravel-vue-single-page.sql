@@ -11,7 +11,7 @@
  Target Server Version : 50724
  File Encoding         : 65001
 
- Date: 16/09/2019 19:34:29
+ Date: 18/10/2019 13:06:33
 */
 
 SET NAMES utf8mb4;
@@ -68,7 +68,7 @@ CREATE TABLE `likes`  (
   `created_at` timestamp(0) NULL DEFAULT NULL,
   `updated_at` timestamp(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 51 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 75 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of likes
@@ -123,6 +123,13 @@ INSERT INTO `likes` VALUES (47, 247, 7, '2019-09-06 18:24:46', '2019-09-06 18:24
 INSERT INTO `likes` VALUES (48, 248, 38, '2019-09-06 18:24:46', '2019-09-06 18:24:46');
 INSERT INTO `likes` VALUES (49, 249, 21, '2019-09-06 18:24:46', '2019-09-06 18:24:46');
 INSERT INTO `likes` VALUES (50, 250, 18, '2019-09-06 18:24:46', '2019-09-06 18:24:46');
+INSERT INTO `likes` VALUES (56, 270, 61, '2019-09-18 19:48:49', '2019-09-18 19:48:49');
+INSERT INTO `likes` VALUES (57, 269, 61, '2019-09-18 19:48:51', '2019-09-18 19:48:51');
+INSERT INTO `likes` VALUES (61, 277, 61, '2019-09-19 00:08:57', '2019-09-19 00:08:57');
+INSERT INTO `likes` VALUES (66, 269, 63, '2019-10-03 02:05:46', '2019-10-03 02:05:46');
+INSERT INTO `likes` VALUES (71, 274, 63, '2019-10-03 02:32:50', '2019-10-03 02:32:50');
+INSERT INTO `likes` VALUES (72, 292, 64, '2019-10-03 11:31:04', '2019-10-03 11:31:04');
+INSERT INTO `likes` VALUES (74, 292, 60, '2019-10-17 12:54:15', '2019-10-17 12:54:15');
 
 -- ----------------------------
 -- Table structure for migrations
@@ -133,7 +140,7 @@ CREATE TABLE `migrations`  (
   `migration` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `batch` int(11) NOT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 8 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of migrations
@@ -144,6 +151,56 @@ INSERT INTO `migrations` VALUES (3, '2019_09_06_162201_create_questions_table', 
 INSERT INTO `migrations` VALUES (4, '2019_09_06_163920_create_replies_table', 1);
 INSERT INTO `migrations` VALUES (5, '2019_09_06_164050_create_categories_table', 1);
 INSERT INTO `migrations` VALUES (6, '2019_09_06_164154_create_likes_table', 1);
+INSERT INTO `migrations` VALUES (7, '2019_09_18_200031_create_notifications_table', 2);
+
+-- ----------------------------
+-- Table structure for notifications
+-- ----------------------------
+DROP TABLE IF EXISTS `notifications`;
+CREATE TABLE `notifications`  (
+  `id` char(36) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `type` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `notifiable_type` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `notifiable_id` bigint(20) UNSIGNED NOT NULL,
+  `data` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `read_at` timestamp(0) NULL DEFAULT NULL,
+  `created_at` timestamp(0) NULL DEFAULT NULL,
+  `updated_at` timestamp(0) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE,
+  INDEX `notifications_notifiable_type_notifiable_id_index`(`notifiable_type`, `notifiable_id`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of notifications
+-- ----------------------------
+INSERT INTO `notifications` VALUES ('020c26e1-870a-457c-b3e4-c673f7d201f8', 'App\\Notifications\\NewReplyNotification', 'App\\User', 63, '{\"replyBy\":\"google\",\"question\":\"hello dollly\",\"path\":\"\\/question\\/hello-dollly\"}', NULL, '2019-10-17 14:03:12', '2019-10-17 14:03:12');
+INSERT INTO `notifications` VALUES ('033cfeaf-f7c0-479a-8820-8900a3d9e77b', 'App\\Notifications\\NewReplyNotification', 'App\\User', 61, '{\"replyBy\":\"waruna\",\"question\":\"A Stateful Component\",\"path\":\"\\/question\\/a-stateful-component\"}', NULL, '2019-10-03 10:39:26', '2019-10-03 10:39:26');
+INSERT INTO `notifications` VALUES ('0b4fd5a0-6d44-429d-9d98-c7656e735b36', 'App\\Notifications\\NewReplyNotification', 'App\\User', 64, '{\"replyBy\":\"eewwo\",\"question\":\"why is the\",\"path\":\"\\/question\\/why-is-the\"}', NULL, '2019-10-17 13:00:59', '2019-10-17 13:00:59');
+INSERT INTO `notifications` VALUES ('15c83d3b-6dd5-4932-96ae-8662e70071c3', 'App\\Notifications\\NewReplyNotification', 'App\\User', 63, '{\"replyBy\":\"google\",\"question\":\"hello dollly\",\"path\":\"\\/question\\/hello-dollly\"}', NULL, '2019-10-17 14:02:03', '2019-10-17 14:02:03');
+INSERT INTO `notifications` VALUES ('27085729-2f1e-479e-834c-955d25af35f5', 'App\\Notifications\\NewReplyNotification', 'App\\User', 63, '{\"replyBy\":\"eewwo\",\"question\":\"hello dollly\",\"path\":\"\\/question\\/hello-dollly\"}', NULL, '2019-10-17 13:40:27', '2019-10-17 13:40:27');
+INSERT INTO `notifications` VALUES ('2d489398-f3c7-48d7-b0f7-16e6cbf89805', 'App\\Notifications\\NewReplyNotification', 'App\\User', 61, '{\"replyBy\":\"waruna\",\"question\":\"A Stateful Component\",\"path\":\"\\/question\\/a-stateful-component\"}', NULL, '2019-10-03 10:58:00', '2019-10-03 10:58:00');
+INSERT INTO `notifications` VALUES ('2d77f8fa-9789-44f8-9231-7f3fd76cd0f7', 'App\\Notifications\\NewReplyNotification', 'App\\User', 61, '{\"replyBy\":\"waruna\",\"question\":\"A Stateful Component\",\"path\":\"\\/question\\/a-stateful-component\"}', NULL, '2019-10-03 10:38:51', '2019-10-03 10:38:51');
+INSERT INTO `notifications` VALUES ('39c2b1d2-bf1b-4e94-b549-849eb0cb1ec8', 'App\\Notifications\\NewReplyNotification', 'App\\User', 61, '{\"replyBy\":\"waruna\",\"question\":\"A Stateful Component\",\"path\":\"\\/question\\/a-stateful-component\"}', NULL, '2019-10-03 10:41:30', '2019-10-03 10:41:30');
+INSERT INTO `notifications` VALUES ('3c16b4e4-c787-4641-9785-78397da8845d', 'App\\Notifications\\NewReplyNotification', 'App\\User', 61, '{\"replyBy\":\"mogno\",\"question\":\"A Stateful Component\",\"path\":\"\\/question\\/a-stateful-component\"}', '2019-09-19 00:20:00', '2019-09-18 20:42:23', '2019-09-19 00:20:00');
+INSERT INTO `notifications` VALUES ('443fa896-981c-4044-b082-f13e76d109dd', 'App\\Notifications\\NewReplyNotification', 'App\\User', 61, '{\"replyBy\":\"waruna\",\"question\":\"A Stateful Component\",\"path\":\"\\/question\\/a-stateful-component\"}', NULL, '2019-10-03 10:44:17', '2019-10-03 10:44:17');
+INSERT INTO `notifications` VALUES ('53524355-4f72-47fb-85fb-c7c55b145eeb', 'App\\Notifications\\NewReplyNotification', 'App\\User', 63, '{\"replyBy\":\"eewwo\",\"question\":\"hello dollly\",\"path\":\"\\/question\\/hello-dollly\"}', NULL, '2019-10-17 13:43:41', '2019-10-17 13:43:41');
+INSERT INTO `notifications` VALUES ('5467bb2d-5539-4d9c-9091-6f5ff03eac36', 'App\\Notifications\\NewReplyNotification', 'App\\User', 61, '{\"replyBy\":\"mogno\",\"question\":\"A Stateful Component\",\"path\":\"\\/question\\/a-stateful-component\"}', '2019-09-19 00:05:34', '2019-09-18 22:30:32', '2019-09-19 00:05:34');
+INSERT INTO `notifications` VALUES ('6eac5eff-2a9c-4019-9e40-28e9c3cea2df', 'App\\Notifications\\NewReplyNotification', 'App\\User', 61, '{\"replyBy\":\"waruna\",\"question\":\"A Stateful Component\",\"path\":\"\\/question\\/a-stateful-component\"}', NULL, '2019-10-03 10:45:15', '2019-10-03 10:45:15');
+INSERT INTO `notifications` VALUES ('76456b71-3119-41ec-8adb-fa46d6cbd792', 'App\\Notifications\\NewReplyNotification', 'App\\User', 61, '{\"replyBy\":\"waruna\",\"question\":\"A Stateful Component\",\"path\":\"\\/question\\/a-stateful-component\"}', NULL, '2019-10-03 10:42:14', '2019-10-03 10:42:14');
+INSERT INTO `notifications` VALUES ('7e551bec-395c-4913-9c54-cf885472531e', 'App\\Notifications\\NewReplyNotification', 'App\\User', 61, '{\"replyBy\":\"waruna\",\"question\":\"A Stateful Component\",\"path\":\"\\/question\\/a-stateful-component\"}', NULL, '2019-10-03 10:33:20', '2019-10-03 10:33:20');
+INSERT INTO `notifications` VALUES ('87bbd46e-b1d8-4e67-bbd3-384e00a50e12', 'App\\Notifications\\NewReplyNotification', 'App\\User', 63, '{\"replyBy\":\"eewwo\",\"question\":\"hello dollly\",\"path\":\"\\/question\\/hello-dollly\"}', NULL, '2019-10-17 13:39:28', '2019-10-17 13:39:28');
+INSERT INTO `notifications` VALUES ('87c002d0-5241-4f19-85c4-c2377a6cb873', 'App\\Notifications\\NewReplyNotification', 'App\\User', 63, '{\"replyBy\":\"eewwo\",\"question\":\"hello dollly\",\"path\":\"\\/question\\/hello-dollly\"}', NULL, '2019-10-17 13:14:50', '2019-10-17 13:14:50');
+INSERT INTO `notifications` VALUES ('88e253f2-7491-4923-8138-5db5bae3e114', 'App\\Notifications\\NewReplyNotification', 'App\\User', 61, '{\"replyBy\":\"waruna\",\"question\":\"A Stateful Component\",\"path\":\"\\/question\\/a-stateful-component\"}', NULL, '2019-10-03 03:31:06', '2019-10-03 03:31:06');
+INSERT INTO `notifications` VALUES ('8e59fd3d-a366-4302-84fd-82ae3938b209', 'App\\Notifications\\NewReplyNotification', 'App\\User', 61, '{\"replyBy\":\"waruna\",\"question\":\"A Stateful Component\",\"path\":\"\\/question\\/a-stateful-component\"}', NULL, '2019-10-03 03:15:13', '2019-10-03 03:15:13');
+INSERT INTO `notifications` VALUES ('b8bbe48f-0e94-409e-a236-e44a6221667b', 'App\\Notifications\\NewReplyNotification', 'App\\User', 61, '{\"replyBy\":\"mogno\",\"question\":\"Why is ReactJS so popula !!! it\'s works fine\",\"path\":\"\\/question\\/why-is-reactjs-so-popular\"}', '2019-09-19 00:08:52', '2019-09-19 00:08:32', '2019-09-19 00:08:52');
+INSERT INTO `notifications` VALUES ('b8bee4e1-3c4c-4a01-8d66-a5ddc1c5f31c', 'App\\Notifications\\NewReplyNotification', 'App\\User', 61, '{\"replyBy\":\"waruna\",\"question\":\"A Stateful Component\",\"path\":\"\\/question\\/a-stateful-component\"}', NULL, '2019-10-03 10:38:20', '2019-10-03 10:38:20');
+INSERT INTO `notifications` VALUES ('c287de95-ee34-4176-8118-3ffc1bd8e057', 'App\\Notifications\\NewReplyNotification', 'App\\User', 61, '{\"replyBy\":\"waruna\",\"question\":\"A Stateful Component\",\"path\":\"\\/question\\/a-stateful-component\"}', NULL, '2019-10-03 03:33:06', '2019-10-03 03:33:06');
+INSERT INTO `notifications` VALUES ('c31aaef5-9c81-434d-a66a-1dfd5405f676', 'App\\Notifications\\NewReplyNotification', 'App\\User', 64, '{\"replyBy\":\"eewwo\",\"question\":\"why is the\",\"path\":\"\\/question\\/why-is-the\"}', NULL, '2019-10-17 12:58:08', '2019-10-17 12:58:08');
+INSERT INTO `notifications` VALUES ('c5c1ac2a-a717-42e8-98c2-49ba8298cd00', 'App\\Notifications\\NewReplyNotification', 'App\\User', 64, '{\"replyBy\":\"waruna\",\"question\":\"why is the\",\"path\":\"\\/question\\/why-is-the\"}', '2019-10-03 11:31:17', '2019-10-03 11:30:46', '2019-10-03 11:31:17');
+INSERT INTO `notifications` VALUES ('d4fc0696-4434-494c-a5c3-2a72681fa9cc', 'App\\Notifications\\NewReplyNotification', 'App\\User', 63, '{\"replyBy\":\"eewwo\",\"question\":\"hello dollly\",\"path\":\"\\/question\\/hello-dollly\"}', NULL, '2019-10-17 13:10:33', '2019-10-17 13:10:33');
+INSERT INTO `notifications` VALUES ('f23d5d01-55ac-4b1e-80a3-57e16e71d579', 'App\\Notifications\\NewReplyNotification', 'App\\User', 63, '{\"replyBy\":\"eewwo\",\"question\":\"hello dollly\",\"path\":\"\\/question\\/hello-dollly\"}', NULL, '2019-10-17 13:11:58', '2019-10-17 13:11:58');
+INSERT INTO `notifications` VALUES ('f972b8db-00b9-426d-8bf9-5f57475c35e0', 'App\\Notifications\\NewReplyNotification', 'App\\User', 61, '{\"replyBy\":\"waruna\",\"question\":\"A Stateful Component\",\"path\":\"\\/question\\/a-stateful-component\"}', NULL, '2019-10-03 11:24:11', '2019-10-03 11:24:11');
+INSERT INTO `notifications` VALUES ('fa3f3684-2d6b-44bd-b0e3-413aaf7b9324', 'App\\Notifications\\NewReplyNotification', 'App\\User', 63, '{\"replyBy\":\"eewwo\",\"question\":\"hello dollly\",\"path\":\"\\/question\\/hello-dollly\"}', NULL, '2019-10-17 13:18:27', '2019-10-17 13:18:27');
 
 -- ----------------------------
 -- Table structure for password_resets
@@ -170,7 +227,7 @@ CREATE TABLE `questions`  (
   `created_at` timestamp(0) NULL DEFAULT NULL,
   `updated_at` timestamp(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 58 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 60 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of questions
@@ -221,8 +278,10 @@ INSERT INTO `questions` VALUES (49, 'Minus est et impedit labore soluta quis.', 
 INSERT INTO `questions` VALUES (50, 'Sit omnis atque labore.', 'sit-omnis-atque-labore', 'Omnis eligendi vel velit. Laborum totam eligendi corporis sed. Consequatur tenetur consequatur ab dicta enim qui sequi.', 24, 7, '2019-09-06 18:24:39', '2019-09-06 18:24:39');
 INSERT INTO `questions` VALUES (51, 'update something', 'vinods-alos-slslow-la-la', 'eiciendis illum ad voluptas officia. Vitae et eligendi eligendi aliquam. Omnis et quas minus sit modi lala', 7, 1, '2019-09-07 06:06:30', '2019-09-07 06:06:30');
 INSERT INTO `questions` VALUES (52, 'dhanushka gayan jayaweera', 'vinods-alos-slslow-la-l', 'eiciendis illum ad voluptas officia.ro ro Vitae et eligendi eligendi aliquam. Omnis et quas minus sit modi lala', 14, 1, '2019-09-07 06:13:05', '2019-09-07 06:13:05');
-INSERT INTO `questions` VALUES (54, 'Why is ReactJS so popula !!! it\'s works fine', 'why-is-reactjs-so-popular', '**Here are a few reasons why**  !!!! \nReact has become so popular so quickly: Working with the DOM API is hard. React basically gives developers the ability to work with a virtual browser that is more friendly than the real browser. ... After that, your JavaScript skills are what make you a better React developer\n.\n1. Why is React JS more popular than AngularJS?	9 posts	May 23, 2018\n1. Vue.js seems to be much more productive than React.js ...	9 posts	Mar 22, 2019\n1. Is React surpassing Angular as of late 2018 in terms of ...	4 posts	Oct 26, 2018\n1. Why is React.JS more popular nowadays?	6 posts	Apr 5, 2018\n1. More results from', 3, 61, '2019-09-13 14:02:22', '2019-09-13 20:48:49');
-INSERT INTO `questions` VALUES (57, 'A Stateful Component', 'a-stateful-component', '# A JavaScript library for building user interfaces\n\n> In addition to taking input data **(accessed via this.props)**, *a component can maintain internal state data* (accessed via this.state). When a component’s state data changes, the rendered markup will be updated by re-invoking render().\n> \n\n### **Declarative**\n\nReact makes it painless to create interactive UIs. Design simple views for each state in your application, and React will efficiently update and render just the right components when your data changes.\n\nDeclarative views make your code more predictable and easier to debug.', 11, 61, '2019-09-13 18:07:11', '2019-09-13 18:07:11');
+INSERT INTO `questions` VALUES (54, 'Why is ReactJS so popula !!! it\'s works fine', 'why-is-reactjs-so-popular', '🍎🍎🍎🍎 **Here are a few reasons why**  !!!! \nReact has become so popular so quickly: Working with the DOM API is hard. React basically gives developers the ability to work with a virtual browser that is more friendly than the real browser. ... After that, your JavaScript skills are what make you a better React developer\n.\n1. Why is React JS more popular than AngularJS?	9 posts	May 23, 2018\n1. Vue.js seems to be much more productive than React.js ...	9 posts	Mar 22, 2019\n1. Is React surpassing Angular as of late 2018 in terms of ...	4 posts	Oct 26, 2018\n1. Why is React.JS more popular nowadays?	6 posts	Apr 5, 2018\n1. More results from 🍎🍎🍎🍎🍎', 3, 61, '2019-09-13 14:02:22', '2019-09-16 14:30:23');
+INSERT INTO `questions` VALUES (57, 'A Stateful Component', 'a-stateful-component', '#   A JavaScript library for building user interfaces\n\n> In addition to taking input data **(accessed via this.props)**, *a component can maintain internal state data* (accessed via this.state). When a component’s state data changes, the rendered markup will be updated by re-invoking render().\n> \n\n### **Declarative**\n\nReact makes it painless to create interactive UIs. Design simple views for each state in your application, and React will efficiently update and render just the right components when your data changes.\n\nDeclarative views make your code more predictable and easier to debug.', 11, 61, '2019-09-13 18:07:11', '2019-09-18 14:37:13');
+INSERT INTO `questions` VALUES (58, 'why is the', 'why-is-the', 'most bigest frame work in the world', 33, 64, '2019-10-03 11:30:16', '2019-10-03 11:30:16');
+INSERT INTO `questions` VALUES (59, 'hello dollly', 'hello-dollly', 'created a own design', 10, 63, '2019-10-17 13:10:07', '2019-10-17 13:10:07');
 
 -- ----------------------------
 -- Table structure for replies
@@ -238,7 +297,7 @@ CREATE TABLE `replies`  (
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `replies_question_id_foreign`(`question_id`) USING BTREE,
   CONSTRAINT `replies_question_id_foreign` FOREIGN KEY (`question_id`) REFERENCES `questions` (`id`) ON DELETE CASCADE ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 267 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 304 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of replies
@@ -469,6 +528,31 @@ INSERT INTO `replies` VALUES (259, 'Hello DOlly', 52, 61, '2019-09-16 12:06:03',
 INSERT INTO `replies` VALUES (260, 'Djanog is my favorite frame workd any time', 52, 61, '2019-09-16 12:50:13', '2019-09-16 12:50:13');
 INSERT INTO `replies` VALUES (265, 'dososdkfjsf sdklfjsdklfjsdklfjsd fkjsdkljsdlkfjsdfds', 57, 61, '2019-09-16 13:56:28', '2019-09-16 13:56:28');
 INSERT INTO `replies` VALUES (266, 'this is for editing part', 57, 61, '2019-09-16 14:03:40', '2019-09-16 14:03:40');
+INSERT INTO `replies` VALUES (267, '# router slsslsl', 57, 61, '2019-09-16 14:21:20', '2019-09-16 14:21:20');
+INSERT INTO `replies` VALUES (269, '#  Yep Banana is verry good for me', 57, 61, '2019-09-16 14:23:11', '2019-09-18 14:37:26');
+INSERT INTO `replies` VALUES (270, '#  apple Phone is my Favorite cell Phone in the World !!!', 57, 61, '2019-09-16 14:29:14', '2019-09-18 14:37:20');
+INSERT INTO `replies` VALUES (271, 'sdfdsfsdsddfs', 57, 61, '2019-09-18 20:24:35', '2019-09-18 20:24:35');
+INSERT INTO `replies` VALUES (272, 'sdfdsfsdsddfs lslsls', 57, 61, '2019-09-18 20:28:48', '2019-09-18 20:28:48');
+INSERT INTO `replies` VALUES (273, 'sdfdsfsdsddfs lslsls', 57, 61, '2019-09-18 20:38:55', '2019-09-18 20:38:55');
+INSERT INTO `replies` VALUES (274, 'dsfsdfdssdsdfdffds', 57, 61, '2019-09-18 20:40:21', '2019-09-18 20:40:21');
+INSERT INTO `replies` VALUES (275, 'ssdsdfsdf sdfsdsdf', 57, 61, '2019-09-18 20:42:23', '2019-09-18 20:42:23');
+INSERT INTO `replies` VALUES (276, 'hwo sdkfj skjdfkdlsjf sdkljfdksfjkdsjfdf', 57, 61, '2019-09-18 22:30:31', '2019-09-18 22:30:31');
+INSERT INTO `replies` VALUES (277, 'Why is React JS more popular than AngularJS this is not questions', 54, 61, '2019-09-19 00:08:32', '2019-09-19 00:08:32');
+INSERT INTO `replies` VALUES (278, 'You will use your experience and business expertise', 54, 61, '2019-09-19 00:12:47', '2019-09-19 00:12:47');
+INSERT INTO `replies` VALUES (288, 'google analystic', 57, 63, '2019-10-03 10:44:17', '2019-10-03 10:44:17');
+INSERT INTO `replies` VALUES (289, 'benthota villa', 57, 63, '2019-10-03 10:45:15', '2019-10-03 10:45:15');
+INSERT INTO `replies` VALUES (290, 'la la land', 57, 63, '2019-10-03 10:58:00', '2019-10-03 10:58:00');
+INSERT INTO `replies` VALUES (291, 'hellow dolly', 57, 63, '2019-10-03 11:24:11', '2019-10-03 11:24:11');
+INSERT INTO `replies` VALUES (292, 'why do you ask like that', 58, 63, '2019-10-03 11:30:46', '2019-10-03 11:30:46');
+INSERT INTO `replies` VALUES (295, 'heool siwekd sddjfklsdfj sdfjksdkljf', 59, 60, '2019-10-17 13:10:33', '2019-10-17 13:10:33');
+INSERT INTO `replies` VALUES (296, 'sdfdfsdfsd dsfsdfsd dsfsdf', 59, 60, '2019-10-17 13:11:58', '2019-10-17 13:11:58');
+INSERT INTO `replies` VALUES (297, 'google3 adword', 59, 60, '2019-10-17 13:14:50', '2019-10-17 13:14:50');
+INSERT INTO `replies` VALUES (298, 'youtbe', 59, 60, '2019-10-17 13:18:27', '2019-10-17 13:18:27');
+INSERT INTO `replies` VALUES (299, 'sdfdsfsd dsfdsfsdfsdf', 59, 60, '2019-10-17 13:39:27', '2019-10-17 13:39:27');
+INSERT INTO `replies` VALUES (300, 'sdfs sdfdsfsdfsdsd sdfsdfsdf', 59, 60, '2019-10-17 13:40:26', '2019-10-17 13:40:26');
+INSERT INTO `replies` VALUES (301, 'dddddd', 59, 60, '2019-10-17 13:43:41', '2019-10-17 13:43:41');
+INSERT INTO `replies` VALUES (302, 'dsdfdsfds', 59, 64, '2019-10-17 14:02:03', '2019-10-17 14:02:03');
+INSERT INTO `replies` VALUES (303, 'sadas asdsadsa asdsadsad asdsad', 59, 64, '2019-10-17 14:03:12', '2019-10-17 14:03:12');
 
 -- ----------------------------
 -- Table structure for users
@@ -484,7 +568,7 @@ CREATE TABLE `users`  (
   `updated_at` timestamp(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE INDEX `users_email_unique`(`email`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 63 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 65 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of users
@@ -549,5 +633,7 @@ INSERT INTO `users` VALUES (59, 'jojo', 'jojo@gmail.com', '$2y$10$EouocLPR6/qMkS
 INSERT INTO `users` VALUES (60, 'eewwo', 'eewwo@gmail.com', '$2y$10$jGk.c.DEb2gpeTSiVxSTvuiuEyXKlwUwFGkZDxoGSkfWpAQj67ZEe', NULL, '2019-09-12 04:43:14', '2019-09-12 04:43:14');
 INSERT INTO `users` VALUES (61, 'mogno', 'jangoose@gmail.com', '$2y$10$FsQJ6WkRGu6p2In4AnvnleSS766Ag0jOGEKVi9U9kfqaTWckA/nJ6', NULL, '2019-09-12 05:18:32', '2019-09-12 05:18:32');
 INSERT INTO `users` VALUES (62, 'rawana', 'missionrawana@gmail.com', '$2y$10$1f8XJ2PcBs6XUwrsFwuj8.eCvHLvA3O3Ikm0ruZYLNkhwWO8kKdt.', NULL, '2019-09-13 10:40:10', '2019-09-13 10:40:10');
+INSERT INTO `users` VALUES (63, 'waruna', 'waruna@gmail.com', '$2y$10$SqW3ocBe90pi2pQZR65ZdelrzvwE3pvxpicZAzq4t.VxayOYYGa4.', NULL, '2019-10-03 02:04:24', '2019-10-03 02:04:24');
+INSERT INTO `users` VALUES (64, 'google', 'google@gmail.com', '$2y$10$7OFxOHFkry8MNCrjfQfCIuUILtwbwqcT/MuJqjTj/XGDcMauEAeBy', NULL, '2019-10-03 11:29:23', '2019-10-03 11:29:23');
 
 SET FOREIGN_KEY_CHECKS = 1;
