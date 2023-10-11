@@ -2,7 +2,7 @@
 <h2>Componets</h2>
 
 <a href="https://github.com/dhanush167/vue-and-laravel-blog-crud-2019/tree/add_final_database/resources/assets/js">
-                            Links
+                          Componets  Link
 </a>
 
 <hr>
