@@ -1,5 +1,29 @@
 
 
+<h2>
+    Relationships
+</h2>
+
+<h2>
+    JWT for Authentication
+</h2>
+
+<h2>
+    Jwt middleware and exception
+</h2>
+
+<h2>
+    Vuetify and Components
+</h2>
+
+<h2>
+    Notifications
+</h2>
+
+<h2>
+    Pusher
+</h2>
+
 
 
 <p>
