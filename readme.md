@@ -1,30 +1,30 @@
 
 
 <h2>
-    Relationships
+   1) Relationships
 </h2>
 
 <h2>
-    JWT for Authentication
+  2)  JWT for Authentication
 </h2>
 
 <h2>
-    Jwt middleware and exception
+  3)  Jwt middleware and exception
 </h2>
 
 <h2>
-    Vuetify and Components
+ 4) Vuetify and Components
 </h2>
 
 <h2>
-    Notifications
+ 5)   Notifications
 </h2>
 
 <h2>
-    Pusher
+ 6)   Pusher
 </h2>
 
-
+<hr>
 
 <p>
 Within the elegant tapestry of this Laravel project, 
@@ -32,14 +32,6 @@ JWT (JSON Web Token) authentication acts as the guardian of your digital realm,
 ensuring only the chosen may enter, wielding the power of seamless, secure access.
 </p>
 
-<p>
-Vuetify, a visionary among front-end frameworks, 
-paints your user interface with aesthetic finesse. 
-Each pixel dances in perfect alignment,
-creating a visual masterpiece that's as captivating as it is functional.
-The user's journey through your web application is transformed into an immersive experience,
-where design meets performance with artistic precision.
-</p>
 
 
 <p>
